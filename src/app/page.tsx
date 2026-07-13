@@ -16,18 +16,18 @@ export default function Home() {
   return (
     <main className="bg-white">
       <Hero />
-      {/* <Partners /> */}
-      {/* <About /> */}
-      {/* <ProjectHighlights /> */}
-      {/* <ServiceMarquee /> */}
-      {/* <Services /> */}
-      {/* <Stats /> */}
-      {/* <Pricing /> */}
-      {/* <Principles /> */}
-      {/* <Testimonials /> */}
-      {/* <CTA /> */}
-      {/* <Trial /> */}
-      {/* <Footer /> */}
+      <Partners />
+      <About />
+      <ProjectHighlights />
+      <ServiceMarquee />
+      <Services />
+      <Stats />
+      <Pricing />
+      <Principles />
+      <Testimonials />
+      <CTA />
+      <Trial />
+      <Footer />
     </main>
   );
 }
