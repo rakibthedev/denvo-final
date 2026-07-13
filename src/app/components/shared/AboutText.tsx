@@ -5,7 +5,7 @@ import { motion, useScroll, useTransform, useSpring, MotionValue } from "motion/
 
 function Word({ word, progress, range }: { word: string; progress: MotionValue<number>; range: [number, number] }) {
   const opacity = useTransform(progress, range, [0.15, 1]);
-  const color = useTransform(progress, range, ["#a99fbb", "#272629"]);
+  const color = useTransform(progress, range, ["#342F3D", "#342F3D"]);
   return (
     <motion.span style={{ opacity, color }} className="mr-2 inline-block md:mr-3">
       {word}

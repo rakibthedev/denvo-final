@@ -13,19 +13,19 @@ const cards = Array.from({ length: 6 });
 
 function Card() {
   return (
-    <div className="flex w-[300px] shrink-0 flex-col rounded-3xl bg-[#eee0ff] p-6 md:w-[380px] md:p-8">
-      <div className="flex items-center gap-3 border-b border-white/60 pb-5">
+    <div className="flex w-[300px] shrink-0 flex-col rounded-3xl bg-[#EEE0FF] p-6 md:w-[380px] md:p-8">
+      <div className="flex items-center gap-3 border-b border-[#DDC2FF] pb-6">
         <Image src="/profile.png" alt={base.name} width={48} height={48} className="size-12 rounded-full object-cover" />
         <div>
-          <p className="text-base font-semibold text-ink md:text-lg">{base.name}</p>
-          <p className="text-sm text-grey-700">{base.role}</p>
+          <p className="text-base md:text-[24px] font-bold text-[#342F3D]">{base.name}</p>
+          <p className="text-sm md:text-[16px] text-[#9481AA]">{base.role}</p>
         </div>
       </div>
-      <Image src="/quote.png" alt="" width={44} height={44} className="mt-5 h-10 w-10" />
-      <p className="mt-2 text-base leading-relaxed text-ink md:text-lg">{base.quote}</p>
-      <div className="mt-6 flex gap-1 border-t border-white/60 pt-5">
+      <Image src="/quote.svg" alt="" width={56} height={56} className="mt-6 h-10 w-10" />
+      <p className="mt-2 text-base font-bold leading-[140%] text-[#342F3D] md:text-[24px]">{base.quote}</p>
+      <div className="mt-6 flex gap-1 border-t border-[#DDC2FF] pt-5">
         {Array.from({ length: 5 }).map((_, i) => (
-          <Image key={i} src="/star4.png" alt="" width={20} height={20} className="size-5" />
+          <Image key={i} src="/star6.svg" alt="" width={20} height={20} className="size-5" />
         ))}
       </div>
       <p className="mt-4 text-lg font-semibold text-ink">{base.source}</p>

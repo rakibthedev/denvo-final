@@ -1,5 +1,6 @@
 import { ArrowRight } from "lucide-react";
 import Logo from "./shared/Logo";
+import Image from "next/image";
 
 const columns = [
   { title: "Services", links: ["UI UX Design", "Web Design", "Product Design", "SaaS Design", "Branding", "UX Audit"] },
@@ -59,23 +60,24 @@ export default function Footer() {
             <p className="text-lg text-white/80">Let&apos;s work together</p>
             <a href="#" className="mt-2 inline-flex items-center gap-2 text-lg font-semibold text-brand-500">
               Call Denvo Lab
-              <span className="flex size-6 items-center justify-center rounded-full border border-brand-500">
-                <ArrowRight className="size-3" />
-              </span>
+
+               <div className="p-1.5 rounded-md border border-[#A259FF]">
+                  <ArrowRight className="size-4" />
+              </div>
             </a>
           </div>
         </div>
 
-        <div className="mt-10 border-t border-white/10 py-6">
+        <div className="mt-10 border-t border-white/10 pt-6">
           <p className="text-center text-sm text-white/50">denvo lab LLC © 2025</p>
         </div>
       </div>
 
-      <div className="pointer-events-none select-none overflow-hidden">
-        <p className="-mb-6 translate-y-4 text-center text-[90px] font-extrabold leading-none tracking-tight text-white/10 blur-[2px] md:-mb-16 md:text-[220px]">
-          DENVO
-        </p>
-      </div>
+       <div className="">
+          <Image src={'/denvo-2.png'} alt="DENVO LAB" width={1200} height={400}
+            className="w-full"
+          />
+        </div>
     </footer>
   );
 }

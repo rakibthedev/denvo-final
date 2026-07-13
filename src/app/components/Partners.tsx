@@ -28,7 +28,7 @@ export default function Partners() {
       <div className="mx-auto w-full max-w-[1440px] px-4 md:px-20">
         <WordReveal
           text="We partner with 10+ countries"
-          className="justify-center px-4 text-center text-[20px] font-normal uppercase leading-[132%] tracking-[0.08em] text-grey-900 md:text-[36px]"
+          className="justify-center px-4 text-center text-[20px] md:text-[36px] font-normal uppercase leading-[132%] tracking-[0.08em] text-[#3D3D3D] md:text-[36px]"
         />
         <div className="mt-4 flex items-center justify-center gap-2 md:gap-4">
           {flags.map((f) => (

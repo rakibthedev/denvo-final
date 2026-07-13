@@ -18,11 +18,9 @@ export default function CTA() {
           />
           <div className="relative flex flex-col items-start gap-8 md:flex-row md:items-center md:gap-10">
             <div className="max-w-[620px]">
-              <WordReveal
-                as="h2"
-                text="Unleash Your Team's Creativity With Denvo Lab"
-                className="text-[34px] font-bold leading-[1.12] tracking-[-0.02em] text-ink md:text-[52px]"
-              />
+              <h2 className="text-[34px] font-bold leading-[1.12] tracking-[-0.02em] text-ink md:text-[52px]">
+                Unleash Your T<span className="text-primary">eam's Creativity</span> With Denvo Lab                
+              </h2>
               <p className="mt-5 max-w-[520px] text-base leading-relaxed text-grey-700 md:text-lg">
                 With Bricks, you get a library of pre-built components to visualize insights, manage
                 timelines, track projects, and create powerful charts with ease.

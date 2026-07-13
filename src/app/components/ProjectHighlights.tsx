@@ -31,9 +31,9 @@ function ProjectCard({ img, tag, title }: (typeof projects)[number]) {
         />
       </motion.div>
 
-      <p className="mt-4 text-sm text-grey-700 md:mt-5">{tag.join(" • ")}</p>
+      <p className="mt-4 text-sm md:text-[24px] text-[#524566] md:mt-5 leading-[140%]">{tag.join(" • ")}</p>
 
-      <div className="relative mt-2 flex items-center">
+      <div className="relative mt-3 flex items-start">
         <motion.span
           variants={{ rest: { opacity: 0, scale: 0.6, x: -8 }, hover: { opacity: 1, scale: 1, x: 0 } }}
           transition={{ duration: 0.25, ease: "easeOut" }}
@@ -43,9 +43,9 @@ function ProjectCard({ img, tag, title }: (typeof projects)[number]) {
           <ArrowUpRight className="size-5 text-white" />
         </motion.span>
         <motion.h3
-          variants={{ rest: { x: 0, color: "#272629" }, hover: { x: 60, color: "#883cfa" } }}
+          variants={{ rest: { x: 0, color: "#272629" }, hover: { x: 54, color: "#883cfa" } }}
           transition={{ duration: 0.25, ease: "easeOut" }}
-          className="text-xl font-semibold md:text-2xl"
+          className="text-xl font-semibold md:text-[36px] leading-[132%] mt-[-3px]"
         >
           {title}
         </motion.h3>
@@ -66,7 +66,7 @@ export default function ProjectHighlights() {
           <WordReveal
             text="Highlights"
             stagger={0.2}
-            className="justify-end text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[140px]"
+            className="md:ml-[19%] text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[140px]"
           />
         </div>
 

@@ -3,7 +3,7 @@ import WordReveal from "./shared/WordReveal";
 import AboutText from "./shared/AboutText";
 
 const FULL_TEXT =
-  "Denvo Lab is a digital product design agency, who are passionate for digital product design, blending creativity, strategy, data, and technology to craft smart digital experiences.";
+  "Denvo Lab is a digital product design agency, who are passionate for digital product design, blending creativity, strategy, data, and technology to craft smart digital experiences.";
 
 function Badge({ logo, w }: { logo: string; w: string }) {
   return (
@@ -33,7 +33,7 @@ export default function About() {
         <div className="w-full md:w-1/2">
           <AboutText
             txt={FULL_TEXT}
-            className="text-[26px] font-medium leading-[1.2] md:text-[42px]"
+            className="text-[28px] font-extrabold leading-[120%] md:text-[56px] "
           />
         </div>
       </div>

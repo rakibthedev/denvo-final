@@ -76,7 +76,7 @@ export default function Services() {
         <p className="text-sm font-semibold uppercase tracking-[0.15em] text-primary">/Services</p>
         <WordReveal
           text="The services we offer"
-          className="text-[36px] font-bold leading-[1.1] tracking-[-0.02em] text-ink md:text-[56px]"
+          className="text-[36px] font-bold leading-[120%] tracking-[-0.02em] text-ink md:text-[56px]"
         />
         <TextReveal as="p" className="mt-4 max-w-sm text-base text-grey-700 md:text-lg" delay={0.2}>
           Discover how our creative expertise can transform your business with our comprehensive suite of digital services.
