@@ -1,0 +1,87 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #342f3d;
+}
+
+@theme inline {
+  /* Brand / purple scale */
+  --color-brand-50: #fcfaff;
+  --color-brand-100: #f0e6fa;
+  --color-brand-500: #a259ff;
+  --color-brand-900: #44256b;
+  --color-primary: #883cfa; /* Button/Primary, Text/Base_color */
+  --color-purple-1: #f9f5ff;
+  --color-purple-2: #eee0ff;
+  --color-purple-3: #ddc2ff;
+  --color-purple-4: #c496ff;
+  --color-purple-5: #b377ff;
+
+  /* Neutrals */
+  --color-ink: #272629; /* Base/Black */
+  --color-text: #342f3d; /* Text/Default */
+  --color-subtext: #524566; /* Text/sub_text */
+  --color-grey-700: #676767;
+  --color-grey-800: #505050;
+  --color-grey-900: #3d3d3d;
+
+  /* Surfaces */
+  --color-bg-secondary: #f9f5ff; /* Background/Secondary */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Fonts */
+  --font-sans: var(--font-host-grotesk);
+  --font-space: var(--font-space-grotesk);
+}
+
+/* Hero title: 96px once the viewport is wider than 1440px (e.g. zoomed out / big screen).
+   Unlayered so it overrides Tailwind's layered md:text-[76px]. */
+@media (min-width: 1440px) {
+  .hero-title {
+    font-size: 96px;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-host-grotesk), Arial, Helvetica, sans-serif;
+}
+
+* {
+  -webkit-font-smoothing: antialiased;
+}
+
+a,
+button,
+[role="button"] {
+  cursor: pointer;
+}
+
+@keyframes marquee-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  from {
+    transform: translateX(-50%);
+  }
+  to {
+    transform: translateX(0);
+  }
+}
+
+.animate-marquee-left {
+  animation: marquee-left 35s linear infinite;
+}
+
+.animate-marquee-right {
+  animation: marquee-right 35s linear infinite;
+}
