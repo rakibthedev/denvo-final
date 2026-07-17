@@ -33,27 +33,68 @@ function ServiceCard({
       style={{ scale, top: `calc(96px + ${index * 24}px)` }}
       className="sticky flex flex-col-reverse items-stretch gap-4 overflow-hidden rounded-3xl border border-[#E9D7FE] bg-[#f7f4fc] shadow-sm transform-gpu md:flex-row md:items-center md:gap-6"
     >
-      <div className="flex flex-col justify-center p-6 md:w-1/2 md:p-8">
+      <motion.div 
+        className="flex flex-col justify-center p-6 md:w-1/2 md:p-8"
+        initial="initial"
+        whileHover="hover"
+        animate="initial"
+      >
         <h3 className="text-[24px] font-semibold text-ink md:text-[28px]">{title}</h3>
-        <p className="mt-3 hidden text-base leading-relaxed text-grey-700 md:block">{DESC}</p>
-        <div className="mt-5 flex flex-wrap gap-2 md:mt-6">
-          {tags.map((t) => (
-            <span
-              key={t}
-              className="rounded-full bg-[#eee0ff] px-3 py-1.5 text-xs font-medium text-ink md:text-sm"
-            >
-              {t}
-            </span>
-          ))}
+        
+        {/* Overlapping Grid to swap states smoothly */}
+        <div className="relative mt-5 grid md:mt-6">
+          
+          {/* LAYER 1: Description + Tags (Visible initially, hides on hover) */}
+          <motion.div 
+            className="col-start-1 row-start-1 flex flex-col items-start gap-5"
+            variants={{
+              initial: { opacity: 1, y: 0, pointerEvents: "auto" },
+              hover: { opacity: 0, y: -20, pointerEvents: "none" }
+            }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <p className="text-base leading-relaxed text-grey-700">{DESC}</p>
+            <div className="flex flex-wrap gap-2">
+              {tags.map((t) => (
+                <span key={t} className="rounded-full bg-[#eee0ff] px-3 py-1.5 text-xs font-medium text-ink md:text-sm">
+                  {t}
+                </span>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* LAYER 2: Tags + Button (Hidden initially, shows on hover) */}
+          <motion.div 
+            className="col-start-1 row-start-1 flex flex-col items-start gap-6"
+            variants={{
+              initial: { opacity: 0, y: 20, pointerEvents: "none" },
+              hover: { opacity: 1, y: 0, pointerEvents: "auto" }
+            }}
+            transition={{ duration: 0.4, ease: "easeOut" }}
+          >
+            <div className="flex flex-wrap gap-2">
+              {tags.map((t) => (
+                <span key={t} className="rounded-full bg-[#eee0ff] px-3 py-1.5 text-xs font-medium text-ink md:text-sm">
+                  {t}
+                </span>
+              ))}
+            </div>
+            <button className="rounded-full bg-[#7C3AED] px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-[#6D28D9]">
+              Get a 3 days free trial
+            </button>
+          </motion.div>
+
         </div>
-      </div>
-      <div className="flex items-center justify-center px-4 pt-4 md:w-1/2 md:p-6">
+      </motion.div>
+
+      {/* Image Container - Using object-cover to prevent stretching */}
+      <div className="flex w-full items-center justify-center px-4 pt-4 md:w-1/2 md:p-6">
         <Image
           src={`/${img}.png`}
           alt={title}
           width={500}
           height={400}
-          className="h-auto max-h-[220px] w-full object-contain md:max-h-full"
+          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-sm"
         />
       </div>
     </motion.article>

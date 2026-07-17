@@ -4,49 +4,86 @@ import Image from "next/image";
 import Marquee from "react-fast-marquee";
 import WordReveal from "./shared/WordReveal";
 
-const flags = [
-  "bd", "flag-2", "flag-3", "flag-4", "flag-5",
-  "flag-6", "flag-7", "flag-8", "flag-9", "flag-10",
-];
-
-function LogoRow() {
-  return (
-    <div className="flex items-center gap-9">
-      {Array.from({ length: 5 }).map((_, i) => (
-        <span key={i} className="flex items-center gap-9">
-          <Image src="/visa.png" alt="partner" width={144} height={48} className="h-[22px] w-[68px] md:h-12 md:w-[144px]" />
-          <Image src="/ckc.png" alt="partner" width={103} height={48} className="h-[22px] w-[48px] md:h-12 md:w-[103px]" />
-        </span>
-      ))}
-    </div>
-  );
-}
 
 export default function Partners() {
-  return (
-    <section className="bg-[#f0e3ff] py-8 md:py-20">
-      <div className="mx-auto w-full max-w-[1440px] px-4 md:px-20">
-        <WordReveal
-          text="We partner with 10+ countries"
-          className="justify-center px-4 text-center text-[20px] md:text-[36px] font-normal uppercase leading-[132%] tracking-[0.08em] text-[#3D3D3D] md:text-[36px]"
-        />
-        <div className="mt-4 flex items-center justify-center gap-2 md:gap-4">
-          {flags.map((f) => (
-            <Image key={f} src={`/${f}.png`} alt="flag" width={24} height={16} className="h-4 w-6" />
-          ))}
-        </div>
-      </div>
+   return (
+        <div className='bg-[#F0E3FF]'>
+            <div className='max-w-[1440px] mx-auto px-4 md:px-20 py-8 md:py-20'>
+                <WordReveal
+                    text="We partner with 10+ countries"
+                    className='text-[20px] md:text-[36px] font-[400] text-[#3D3D3D] leading-[132%] text-center uppercase font-Grotesk px-4 justify-center'
+                />
 
-      <div className="mt-8 md:mt-12">
-        <Marquee gradient gradientColor="#F0E3FF" gradientWidth={200}>
-          <LogoRow />
-        </Marquee>
-      </div>
-      <div className="mt-2 md:mt-10">
-        <Marquee direction="right" gradient gradientColor="#F0E3FF" gradientWidth={200}>
-          <LogoRow />
-        </Marquee>
-      </div>
-    </section>
-  );
+                {/* Flags */}
+                <div className='flex justify-center items-center gap-2 md:gap-4 mt-4 px-4'>
+                    <Image src={'/bd.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-2.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-3.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-4.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-5.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-6.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-7.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-8.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-9.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                    <Image src={'/flag-10.png'} alt='bd' width={100} height={100} className='w-6 h-4' />
+                </div>
+
+                {/* Right to Left */}
+                <div className='mt-10'>
+                    <Marquee gradient={true} gradientColor='#F0E3FF' gradientWidth={300}>
+                        <div className='flex items-center gap-9'>
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                        </div>
+                    </Marquee>
+                </div>
+
+                {/* Left to Right */}
+                <div className='mt-2 md:mt-10'>
+                    <Marquee direction='right' gradient={true} gradientColor='#F0E3FF' gradientWidth={300}>
+                        <div className='flex items-center gap-9'>
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                            <Image src={'/visa.png'} alt='bd' width={100} height={100}
+                                className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
+                            <Image src={'/ckc.png'} alt='bd' width={100} height={100}
+                                className='w-[48px] md:w-[103px] h-[22px] md:h-12' />
+                        </div>
+                    </Marquee>
+                </div>
+            </div>
+        </div>
+    );
 }

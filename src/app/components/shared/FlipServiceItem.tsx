@@ -68,7 +68,7 @@ export default function FlipServiceItem({
         <motion.span
           variants={{ initial: { y: 0, opacity: 1, rotateX: 0 }, hover: { y: "-100%", opacity: 0, rotateX: -90 } }}
           transition={flip}
-          className="block whitespace-nowrap text-base font-medium leading-[150%] text-[#342F3D]"
+          className="block whitespace-nowrap md:text-[18px] text-base font-medium leading-[150%] text-[#342F3D]"
         >
           {label}
         </motion.span>

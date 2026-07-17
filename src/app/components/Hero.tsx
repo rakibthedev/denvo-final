@@ -25,11 +25,15 @@ export default function Hero() {
   const videoHeight = useTransform(scrollYProgress, [0, 0.4, 1], ["auto", "auto", "100vh"]);
   const videoRadius = useTransform(scrollYProgress, [0, 0.4], ["32px", "0px"]);
   const videoMarginRight = useTransform(scrollYProgress, [0, 0.4, 1], ["69px", "0px", "0px"]);
-  const videoMarginBottom = useTransform(scrollYProgress, [0, 0.4, 1], ["20px", "0px", "0px"]);
+  const videoMarginBottom = useTransform(scrollYProgress, [0, 0.4, 1], ["0px", "0px", "0px"]);
   const videoInnerScale = useTransform(scrollYProgress, [0, 1], [1.2, 1]);
 
   const contentY = useTransform(scrollYProgress, [0, 0.3], ["0px", "-100vh"]);
   const contentOpacity = useTransform(scrollYProgress, [0, 0.4], [1, 0]);
+
+  const videoPosition = useTransform(scrollYProgress, [0, 0.4], ["static", "fixed"]);
+  const videoBottom = useTransform(scrollYProgress, [0, 0.4], ["20px", "0px"]);
+  const videoRight = useTransform(scrollYProgress, [0, 0.4], ["0 ", "0"]);
 
   return (
     <div ref={containerRef} className="relative h-auto md:h-[250vh]">
@@ -48,11 +52,11 @@ export default function Hero() {
             </video>
             <div
               className="absolute inset-0"
-              style={{
+              style={{                
                 background:
-                  "linear-gradient(0deg, rgba(171, 102, 255, 0.5) 0%, rgba(171, 102, 255, 0.65) 100%), linear-gradient(0deg, #FFF 0%, #FFF 100%)",
-                backgroundBlendMode: "normal, soft-light, soft-light",
-                mixBlendMode: "soft-light",
+                  "linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 243, 252, 0.98) 100%)",
+                // backgroundBlendMode: "normal, soft-light, soft-light",
+                // mixBlendMode: "soft-light",
               }}
             />
           </div>
@@ -60,7 +64,7 @@ export default function Hero() {
           {/* Header + content both fade/move up together on scroll */}
           <motion.div
             style={{ y: contentY, opacity: contentOpacity }}
-            className="relative max-w-full  h-auto max-md:!transform-none max-md:!opacity-100 md:h-screen"
+            className="relative max-w-[1440px] mx-auto h-auto max-md:!transform-none max-md:!opacity-100 md:h-screen"
           >
             <Header />
 
@@ -87,7 +91,7 @@ export default function Hero() {
               </div>
 
               {/* Right: floating services (flip on hover) — desktop only */}
-              <div className="md:translate-y-[-40px] flex w-full shrink-0 flex-col items-start gap-6 md:w-[420px] md:items-end">
+              <div className="md:translate-y-[-60px] flex w-full shrink-0 flex-col items-start gap-6 md:w-[420px] md:items-end">
                 <div className="hidden flex-col gap-6 md:flex">              
                   {serviceTags.map((tag, i) => (
                     <motion.div
@@ -115,14 +119,18 @@ export default function Hero() {
         </section>
 
         {/* Desktop expanding scroll video */}
-        <div className="pointer-events-none absolute bottom-0 right-0 z-40 hidden items-center justify-end md:flex">
+        <div className="pointer-events-none md:max-w-full md:w-full absolute bottom-0 md:right-[50%] md:translate-x-[50%] z-40 hidden items-center justify-end md:flex">
           <motion.div
-            style={{
+            style={{              
               width: videoWidth,
               height: videoHeight,
               borderRadius: videoRadius,
               marginRight: videoMarginRight,
               marginBottom: videoMarginBottom,
+              position: videoPosition,   
+               bottom: videoBottom,      
+              right: videoRight,
+            
             }}
             className="pointer-events-auto relative overflow-hidden shadow-2xl"
           >

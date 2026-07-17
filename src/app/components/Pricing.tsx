@@ -28,23 +28,18 @@ export default function Pricing() {
             return (
               <div key={plan.name} className="flex p-2">
                 <div
-                  className={`relative flex w-full flex-col overflow-visible rounded-3xl p-6 md:p-8 ${
+                  className={`relative flex w-full flex-col overflow-hidden rounded-3xl p-6 md:p-8 ${
                     hot
                       ? "z-10 bg-primary text-white shadow-[0px_12px_60px_rgba(162,89,255,0.5)] md:scale-[1.02]"
                       : "border border-brand-100 bg-white text-ink"
                   }`}
                 >
                   {hot && (
-                    <div
-                      className="pointer-events-none absolute inset-0 rounded-3xl opacity-80 mix-blend-screen"
-                      style={{
-                        backgroundImage:
-                          "radial-gradient(100% 60% at 50% 0%, rgba(255,255,255,0.6) 0%, rgba(255,245,170,0.3) 25%, transparent 60%), url('/popular.png')",
-                        backgroundRepeat: "no-repeat",
-                        backgroundPosition: "top center",
-                        backgroundSize: "100% auto",
-                        filter: "grayscale(20%) brightness(1.3)",
-                      }}
+                    <img
+                      src="/popular-glow.svg"
+                      alt=""
+                      aria-hidden="true"
+                      className="pointer-events-none absolute inset-x-0 top-0 w-full select-none"
                     />
                   )}
 
