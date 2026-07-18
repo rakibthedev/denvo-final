@@ -15,17 +15,22 @@ const serviceTags = [
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-[#ffffff] p-5">
+    <section className="relative overflow-hidden bg-[#ffffff] md:p-5">
       {/* Soft lavender wash, matching the airy hero backdrop */}
       <div
+          
         className="pointer-events-none absolute inset-0 -z-10"        
       />
+      <div 
+        className="rounded-3xl"
+        >
 
-      <div className="relative mx-auto max-w-[1440px] rounded-3xl"
-      style={{
+      <div className="relative mx-auto max-w-[1440px] rounded-3xl" 
+        style={{
           background:
             "radial-gradient(120% 90% at 80% 0%, #f3ebff 0%, #faf8ff 45%, #ffffff 100%)",
         }}
+    
         >
         <Header />
 
@@ -80,6 +85,7 @@ export default function AboutHero() {
             </div>
           </div>
         </div>
+      </div>
       </div>
     </section>
   );
