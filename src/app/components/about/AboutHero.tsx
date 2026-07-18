@@ -49,7 +49,7 @@ export default function AboutHero() {
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.5, ease: "easeOut", delay: 0.25 }}
               viewport={{ once: true }}
-              className="mt-6 max-w-[560px] text-base text-extrabold leading-[160%] text-subtext md:text-lg"
+              className="mt-6 max-w-[560px] text-base font-extrabold leading-[160%] text-subtext md:text-lg"
             >
               We are a results-driven UI/UX design agency focused on building
               digital products that are not only beautiful—but actually perform.
