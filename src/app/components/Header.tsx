@@ -7,7 +7,7 @@ import Logo from "./shared/Logo";
 import MenuLink from "./shared/MenuLink";
 import AnimatedBorderButton from "./shared/AnimatedBorderButton";
 
-const navLinks = ["Services", "About", "Studies"];
+const navLinks = { Services: "#", About: "/about", Studies: "#" };
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -15,14 +15,14 @@ export default function Header() {
   return (
     <header className="absolute inset-x-0 top-0 z-50">
       <div className="mx-auto flex w-full items-center justify-between px-5 py-5 md:px-20 md:py-6">
-        <a href="#" className="z-50 flex shrink-0 cursor-pointer items-center" aria-label="Denvo Lab">
+        <a href="/" className="z-50 flex shrink-0 cursor-pointer items-center" aria-label="Denvo Lab">
           <Logo />
         </a>
 
         {/* Desktop nav box (denvo-desktop style) */}
         <nav className="hidden items-center gap-1 rounded-2xl border border-brand-100 bg-white/60 p-1.5 shadow-[0px_4px_29px_0px_rgba(197,197,197,0.1)] backdrop-blur-sm lg:flex">
-          {navLinks.map((link) => (
-            <MenuLink key={link} label={link} />
+          {Object.entries(navLinks).map(([label, href]) => (
+            <MenuLink key={href} label={label} href={href} />
           ))}
         </nav>
 
@@ -30,7 +30,7 @@ export default function Header() {
         <div className="hidden items-center gap-[22px] lg:flex">
           <AnimatedBorderButton label="Become a Client" />
           <a
-            href="#"
+            href="/contact"
             className="flex cursor-pointer items-center justify-center rounded-2xl border border-primary bg-primary px-8 py-4 text-base font-medium text-white transition-all duration-300 hover:scale-[1.02] hover:bg-[#7a32e0]"
           >
             Contact
@@ -53,28 +53,41 @@ export default function Header() {
           }`}
         >
           <ul className="mb-12 flex flex-col items-center gap-6">
-            {["Home", ...navLinks].map((link) => (
-              <li key={link}>
+            {/* Hardcoded Home Link */}
+            <li>
+              <a
+                href="/"
+                onClick={() => setOpen(false)}
+                className="cursor-pointer text-[32px] font-bold text-[#17062E]"
+              >
+                Home
+              </a>
+            </li>
+            
+            {/* Mapped Object Links */}
+            {Object.entries(navLinks).map(([label, href]) => (
+              <li key={href}>
                 <a
-                  href="#"
+                  href={href}
                   onClick={() => setOpen(false)}
                   className="cursor-pointer text-[32px] font-bold text-[#17062E]"
                 >
-                  {link}
+                  {label}
                 </a>
               </li>
             ))}
           </ul>
+          
           <div className="flex w-full max-w-md flex-col gap-5 px-10">
             <a
-              href="#"
+              href="#" /* Update with your actual client link */
               onClick={() => setOpen(false)}
               className="flex cursor-pointer items-center justify-center gap-2 rounded-2xl border-[1.5px] border-primary px-5 py-4 text-lg font-medium text-primary"
             >
               <Plus className="size-5" /> Become a Client
             </a>
             <a
-              href="#"
+              href="/contact"
               onClick={() => setOpen(false)}
               className="cursor-pointer rounded-2xl bg-primary py-4 text-center text-lg font-semibold text-white shadow-md"
             >

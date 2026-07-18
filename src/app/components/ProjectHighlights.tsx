@@ -69,7 +69,7 @@ export default function ProjectHighlights() {
         1. Changed 19% to 15vw (15% of screen width) 
         2. Added shrink-0 so flexbox doesn't crush it to 0px
       */}
-      <div className="hidden md:block md:w-[15vw] shrink-0"></div>
+      <div className="hidden md:block md:w-[16vw] shrink-0"></div>
       <WordReveal
         text="Highlights"
         stagger={0.2}

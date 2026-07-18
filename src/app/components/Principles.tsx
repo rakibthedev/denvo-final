@@ -5,7 +5,9 @@ import Image from "next/image";
 import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import WordReveal from "./shared/WordReveal";
 
-const principles = [
+type Principle = { n: string; title: string; body: string };
+
+const defaultPrinciples: Principle[] = [
   {
     n: "01",
     title: "Users don't come first. Business comes",
@@ -121,7 +123,17 @@ function PrincipleItem({
   );
 }
 
-export default function Principles() {
+export default function Principles({
+  eyebrow = "/We Are Stick",
+  heading = "We stick to our principles",
+  image = "/principle.png",
+  items = defaultPrinciples,
+}: {
+  eyebrow?: string;
+  heading?: string;
+  image?: string;
+  items?: Principle[];
+} = {}) {
   const containerRef = useRef<HTMLDivElement>(null);
 
   const { scrollYProgress } = useScroll({
@@ -134,10 +146,10 @@ export default function Principles() {
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center md:mb-12">
           <p className="text-sm font-semibold uppercase tracking-[0.15em] text-primary">
-            /We Are Stick
+            {eyebrow}
           </p>
           <WordReveal
-            text="We stick to our principles"
+            text={heading}
             className="mt-4 justify-center text-center text-[32px] font-bold leading-[1.1] tracking-[-0.02em] text-ink md:text-[56px]"
           />
         </div>
@@ -145,7 +157,7 @@ export default function Principles() {
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16 items-start">
           <div className="relative h-auto sticky top-24">
             <Image
-              src="/principle.png"
+              src={image}
               alt="Our work"
               width={500}
               height={400}
@@ -154,13 +166,13 @@ export default function Principles() {
           </div>
 
           <div className="flex flex-col" ref={containerRef}>
-            {principles.map((p, i) => (
+            {items.map((p, i) => (
               <PrincipleItem
                 key={p.n}
                 {...p}
-                showLine={i < principles.length - 1}
+                showLine={i < items.length - 1}
                 index={i}
-                totalItems={principles.length}
+                totalItems={items.length}
                 scrollYProgress={scrollYProgress}
               />
             ))}
