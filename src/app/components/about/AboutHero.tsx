@@ -15,7 +15,7 @@ const serviceTags = [
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-[#ffffff] md:p-5">
+    <section className="relative overflow-hidden bg-[#ffffff] md:pt-5">
       {/* Soft lavender wash, matching the airy hero backdrop */}
       <div
           
