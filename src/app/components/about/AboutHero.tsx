@@ -34,7 +34,7 @@ export default function AboutHero() {
         >
         <Header />
 
-        <div className="md:py-15 mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:flex-row md:items-center md:gap-10 md:px-20 md:pb-0 md:pt-0">
+        <div className="md:pt-15 md:pb-15 md:h-[calc(100vh+111px)] mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:flex-row md:items-center md:gap-10 md:px-20">
           {/* Left: heading + subtext + CTA */}
           <div className=" md:w-[60%]">
             <TextReveal
