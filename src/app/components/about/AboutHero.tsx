@@ -15,7 +15,7 @@ const serviceTags = [
 
 export default function AboutHero() {
   return (
-    <section className="relative overflow-hidden bg-[#ffffff] md:pt-5">
+    <section className="relative overflow-hidden bg-[#ffffff] md:pt-3">
       {/* Soft lavender wash, matching the airy hero backdrop */}
       <div
           
@@ -34,7 +34,7 @@ export default function AboutHero() {
         >
         <Header />
 
-        <div className="md:translate-y-[60px] mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:h-[calc(100vh-40px)] md:flex-row md:items-center md:gap-10 md:px-20 md:pb-0 md:pt-0">
+        <div className="md:py-15 mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:flex-row md:items-center md:gap-10 md:px-20 md:pb-0 md:pt-0">
           {/* Left: heading + subtext + CTA */}
           <div className=" md:w-[60%]">
             <TextReveal
