@@ -58,16 +58,18 @@ export default function ProjectHighlights() {
   return (
     <section className="bg-[#f3ffe3]">
       <div className="mx-auto w-full max-w-[1440px] py-14 md:py-[160px]">
-        <div className="px-5 pb-6 md:pb-20 md:pl-[88px] md:pr-24">
-          <WordReveal
-            text="Project"
-            className="text-start text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[140px]"
-          />
-          <WordReveal
-            text="Highlights"
-            stagger={0.2}
-            className="md:ml-[19%] text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[140px]"
-          />
+        <div className="px-5 pb-6 md:pb-20 md:pl-[88px] md:pr-24 w-auto mx-auto flex flex-col items-center">
+          <div className="w-auto">
+            <WordReveal
+              text="Project"
+              className="text-start text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[180px]"
+            />
+            <WordReveal
+              text="Highlights"
+              stagger={0.2}
+              className="md:ml-[19%] text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[180px]"
+            />
+          </div>
         </div>
 
         <div className="px-5 md:px-20">

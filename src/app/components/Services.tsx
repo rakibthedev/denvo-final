@@ -31,10 +31,10 @@ function ServiceCard({
   return (
     <motion.article
       style={{ scale, top: `calc(96px + ${index * 24}px)` }}
-      className="sticky flex flex-col-reverse items-stretch gap-4 overflow-hidden rounded-3xl border border-[#E9D7FE] bg-[#f7f4fc] shadow-sm transform-gpu md:flex-row md:items-center md:gap-6"
+      className="sticky flex flex-col-reverse items-stretch gap-0 overflow-hidden rounded-3xl border border-[#E9D7FE] bg-[#f7f4fc] shadow-sm transform-gpu md:flex-row md:items-center md:gap-6"
     >
       <motion.div 
-        className="flex flex-col justify-center p-6 md:w-1/2 md:p-8"
+        className="flex flex-col justify-center p-5 md:w-1/2 md:p-6"
         initial="initial"
         whileHover="hover"
         animate="initial"
@@ -88,13 +88,13 @@ function ServiceCard({
       </motion.div>
 
       {/* Image Container - Using object-cover to prevent stretching */}
-      <div className="flex w-full items-center justify-center px-4 pt-4 md:w-1/2 md:p-6">
+      <div className="flex w-full items-center justify-center p-5 md:w-1/2 md:p-6 h-full">
         <Image
           src={`/${img}.png`}
           alt={title}
           width={500}
           height={400}
-          className="aspect-[4/3] w-full rounded-2xl object-cover shadow-sm"
+          className="h-full w-full rounded-2xl object-cover shadow-sm"
         />
       </div>
     </motion.article>

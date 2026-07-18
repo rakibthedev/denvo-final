@@ -2,7 +2,7 @@
 
 import { useRef } from "react";
 import Image from "next/image";
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion, useScroll, useTransform, MotionValue } from "motion/react";
 import WordReveal from "./shared/WordReveal";
 
 const principles = [
@@ -28,51 +28,95 @@ function PrincipleItem({
   title,
   body,
   showLine,
+  index,
+  totalItems,
+  scrollYProgress,
 }: {
   n: string;
   title: string;
   body: string;
   showLine: boolean;
+  index: number;
+  totalItems: number;
+  scrollYProgress: MotionValue<number>;
 }) {
-  const ref = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start 0.7", "end 0.3"],
-  });
-  const color = useTransform(scrollYProgress, [0.2, 0.5], ["#DDC2FF", "#A259FF"]);
-  const scale = useTransform(scrollYProgress, [0.2, 0.5], [1, 1.1]);
+  const stepSize = 1 / totalItems;
+  const start = index * stepSize;
+  const dotEnd = start + stepSize * 0.2; // First 20% of the step
+  const lineEnd = start + stepSize; // Remaining 80% of the step
+
+  // Dot color transition
+  const color = useTransform(
+    scrollYProgress,
+    [start, dotEnd],
+    ["#DEDCE0", "#A259FF"]
+  );
+
+  // Line growth transition
+  const lineScaleY = useTransform(scrollYProgress, [dotEnd, lineEnd], [0, 1]);
+
+  // Text color transitions (Grey -> Active Color)
+  // Adjust the second hex value to exactly match your 'text-ink' and 'text-grey-700' variables
+  const titleColor = useTransform(
+    scrollYProgress,
+    [start, dotEnd],
+    ["#DEDCE0", "#111827"] // #111827 is a dark gray/black fallback for 'ink'
+  );
+  
+  const bodyColor = useTransform(
+    scrollYProgress,
+    [start, dotEnd],
+    ["#DEDCE0", "#374151"] // #374151 is a fallback for 'grey-700'
+  );
 
   return (
-    <div ref={ref} className="flex gap-4 md:gap-6">
+    <div className="flex gap-4 md:gap-6">
       <span className="shrink-0 pt-1 text-2xl text-ink">{n}</span>
-      <div className="flex shrink-0 flex-col items-center pt-2">
+      <div className="flex shrink-0 flex-col items-center pt-0">
         <motion.div
-          style={{ backgroundColor: color, scale }}
+          style={{ backgroundColor: color }}
           className="size-6 shrink-0 rounded-full shadow-sm"
         />
         {showLine && (
           <div className="relative w-[2px] flex-1 bg-[#f1f1f1]">
             <motion.div
               style={{
-                scaleY: scrollYProgress,
+                scaleY: lineScaleY,
                 transformOrigin: "top",
-                backgroundColor: color,
+                backgroundColor: "#A259FF",
               }}
               className="absolute inset-0 h-full w-full"
             />
           </div>
         )}
       </div>
-      {/* Updated to pb-6 for all devices */}
-      <div className="pb-0">
-        <h3 className="text-lg font-semibold text-ink md:text-xl">{title}</h3>
-        <p className="mt-2 text-base leading-relaxed text-grey-700">{body}</p>
+      <div className={n === principles[principles.length - 1].n ? "pb-0" : "pb-6"}>
+        <motion.h3
+          style={{ color: titleColor }}
+          className="text-lg font-semibold md:text-xl"
+        >
+          {title}
+        </motion.h3>
+        <motion.p
+          style={{ color: bodyColor }}
+          className="mt-2 text-base leading-relaxed"
+        >
+          {body}
+        </motion.p>
       </div>
     </div>
   );
 }
 
 export default function Principles() {
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  // Spreading the progress smoothly over the scroll duration
+  const { scrollYProgress } = useScroll({
+    target: containerRef,
+    offset: ["start 80%", "end 20%"],
+  });
+
   return (
     <section className="bg-white py-14 md:py-24">
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20">
@@ -87,24 +131,25 @@ export default function Principles() {
         </div>
 
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16 items-center">
-          {/* Changed wrapper from h-fit to h-full */}
           <div className="relative h-auto">
             <Image
               src="/principle.png"
               alt="Our work"
               width={500}
               height={400}
-              // Replaced fixed heights and sticky with h-full
               className="h-full md:h-[420px] w-full rounded-3xl object-cover"
             />
           </div>
 
-          <div className="flex flex-col gap-6">
+          <div className="flex flex-col" ref={containerRef}>
             {principles.map((p, i) => (
               <PrincipleItem
                 key={p.n}
                 {...p}
                 showLine={i < principles.length - 1}
+                index={i}
+                totalItems={principles.length}
+                scrollYProgress={scrollYProgress}
               />
             ))}
           </div>

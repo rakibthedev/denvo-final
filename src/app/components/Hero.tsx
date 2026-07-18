@@ -53,8 +53,8 @@ export default function Hero() {
             <div
               className="absolute inset-0"
               style={{                
-                background:
-                  "linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 243, 252, 0.98) 100%)",
+                background: "url('/hero-video-overlay.png') center center / cover no-repeat",
+                  // "linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 243, 252, 0.98) 100%)",
                 // backgroundBlendMode: "normal, soft-light, soft-light",
                 // mixBlendMode: "soft-light",
               }}
