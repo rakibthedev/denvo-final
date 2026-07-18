@@ -58,19 +58,26 @@ export default function ProjectHighlights() {
   return (
     <section className="bg-[#f3ffe3]">
       <div className="mx-auto w-full max-w-[1440px] py-14 md:py-[160px]">
-        <div className="px-5 pb-6 md:pb-20 md:pl-[88px] md:pr-24 w-auto mx-auto flex flex-col items-center">
-          <div className="w-auto">
-            <WordReveal
-              text="Project"
-              className="text-start text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[180px]"
-            />
-            <WordReveal
-              text="Highlights"
-              stagger={0.2}
-              className="md:ml-[19%] text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[180px]"
-            />
-          </div>
-        </div>
+        <div className="px-5 pb-6 md:pb-20 w-auto mx-auto flex flex-col items-center">
+  <div className="w-auto">
+    <WordReveal
+      text="Project"
+      className="text-start text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[180px]"
+    />
+    <div className="flex">
+      {/* 
+        1. Changed 19% to 15vw (15% of screen width) 
+        2. Added shrink-0 so flexbox doesn't crush it to 0px
+      */}
+      <div className="hidden md:block md:w-[15vw] shrink-0"></div>
+      <WordReveal
+        text="Highlights"
+        stagger={0.2}
+        className="text-[42px] font-semibold leading-[120%] tracking-[-0.02em] text-ink md:text-[180px]"
+      />             
+    </div>
+  </div>
+</div>
 
         <div className="px-5 md:px-20">
           <div className="grid grid-cols-1 gap-x-16 gap-y-10 md:grid-cols-2 md:gap-y-14">

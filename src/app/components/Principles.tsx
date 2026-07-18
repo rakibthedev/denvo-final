@@ -42,10 +42,13 @@ function PrincipleItem({
 }) {
   const stepSize = 1 / totalItems;
   const start = index * stepSize;
-  const dotEnd = start + stepSize * 0.2; // First 20% of the step
-  const lineEnd = start + stepSize; // Remaining 80% of the step
+  const dotEnd = start + stepSize * 0.2; // First 20% of the step for the dot
+  const lineEnd = start + stepSize; // The full 100% of the step
 
-  // Dot color transition
+  const isLastItem = index === totalItems - 1;
+  const textEnd = isLastItem ? dotEnd : lineEnd;
+
+  // Dot color transition (keeps the light #DEDCE0 starting point)
   const color = useTransform(
     scrollYProgress,
     [start, dotEnd],
@@ -55,23 +58,33 @@ function PrincipleItem({
   // Line growth transition
   const lineScaleY = useTransform(scrollYProgress, [dotEnd, lineEnd], [0, 1]);
 
-  // Text color transitions (Grey -> Active Color)
-  // Adjust the second hex value to exactly match your 'text-ink' and 'text-grey-700' variables
+  // Text color transitions - Changed initial color to a darker gray (#9CA3AF)
+  const numberColor = useTransform(
+    scrollYProgress,
+    [start, textEnd], 
+    ["#9CA3AF", "#111827"] 
+  );
+
   const titleColor = useTransform(
     scrollYProgress,
-    [start, dotEnd],
-    ["#DEDCE0", "#111827"] // #111827 is a dark gray/black fallback for 'ink'
+    [start, textEnd], 
+    ["#9CA3AF", "#111827"] 
   );
   
   const bodyColor = useTransform(
     scrollYProgress,
-    [start, dotEnd],
-    ["#DEDCE0", "#374151"] // #374151 is a fallback for 'grey-700'
+    [start, textEnd],
+    ["#9CA3AF", "#374151"] 
   );
 
   return (
     <div className="flex gap-4 md:gap-6">
-      <span className="shrink-0 pt-1 text-2xl text-ink">{n}</span>
+      <motion.span 
+        style={{ color: numberColor }}
+        className="shrink-0 pt-1 text-2xl font-medium"
+      >
+        {n}
+      </motion.span>
       <div className="flex shrink-0 flex-col items-center pt-0">
         <motion.div
           style={{ backgroundColor: color }}
@@ -90,7 +103,7 @@ function PrincipleItem({
           </div>
         )}
       </div>
-      <div className={n === principles[principles.length - 1].n ? "pb-0" : "pb-6"}>
+      <div className={isLastItem ? "pb-0" : "pb-6"}>
         <motion.h3
           style={{ color: titleColor }}
           className="text-lg font-semibold md:text-xl"
@@ -111,14 +124,13 @@ function PrincipleItem({
 export default function Principles() {
   const containerRef = useRef<HTMLDivElement>(null);
 
-  // Spreading the progress smoothly over the scroll duration
   const { scrollYProgress } = useScroll({
     target: containerRef,
-    offset: ["start 80%", "end 20%"],
+    offset: ["start 80%", "end 50%"],
   });
 
   return (
-    <section className="bg-white py-14 md:py-24">
+    <section className="bg-white py-14 md:py-24 overflow-hidden">
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20">
         <div className="mb-10 text-center md:mb-12">
           <p className="text-sm font-semibold uppercase tracking-[0.15em] text-primary">
@@ -130,8 +142,8 @@ export default function Principles() {
           />
         </div>
 
-        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16 items-center">
-          <div className="relative h-auto">
+        <div className="grid grid-cols-1 gap-10 md:grid-cols-2 md:gap-16 items-start">
+          <div className="relative h-auto sticky top-24">
             <Image
               src="/principle.png"
               alt="Our work"
