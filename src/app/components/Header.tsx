@@ -7,7 +7,7 @@ import Logo from "./shared/Logo";
 import MenuLink from "./shared/MenuLink";
 import AnimatedBorderButton from "./shared/AnimatedBorderButton";
 
-const navLinks = { Services: "#", About: "/about", Studies: "#" };
+const navLinks = { Services: "/service", About: "/about", Studies: "/studies" };
 
 export default function Header() {
   const [open, setOpen] = useState(false);
@@ -22,7 +22,7 @@ export default function Header() {
         {/* Desktop nav box (denvo-desktop style) */}
         <nav className="hidden items-center gap-1 rounded-2xl border border-brand-100 bg-white/60 p-1.5 shadow-[0px_4px_29px_0px_rgba(197,197,197,0.1)] backdrop-blur-sm lg:flex">
           {Object.entries(navLinks).map(([label, href]) => (
-            <MenuLink key={href} label={label} href={href} />
+            <MenuLink key={label} label={label} href={href} />
           ))}
         </nav>
 
@@ -66,7 +66,7 @@ export default function Header() {
             
             {/* Mapped Object Links */}
             {Object.entries(navLinks).map(([label, href]) => (
-              <li key={href}>
+              <li key={label}>
                 <a
                   href={href}
                   onClick={() => setOpen(false)}
