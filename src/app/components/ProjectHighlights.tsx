@@ -1,12 +1,13 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import WordReveal from "./shared/WordReveal";
 
 const projects = [
-  { img: "/project1.png", tag: ["UI/UX Design", "Dashboard Design"], title: "Job Sea – Local Job Portal" },
+  { img: "/project1.png", tag: ["UI/UX Design", "Dashboard Design"], title: "Job Sea – Local Job Portal", href: "/studies/jobsea" },
   { img: "/project2.png", tag: ["Web Design", "eCommerce Website"], title: "A1One Botanicals eCommerce" },
   { img: "/project3.png", tag: ["UI/UX Design", "Mobile App Design"], title: "Hotel Management" },
   { img: "/project4.png", tag: ["UI/UX Design", "Web Design"], title: "Nara AI – Travel Plan Builder Agency" },
@@ -14,9 +15,18 @@ const projects = [
   { img: "/project6.png", tag: ["Web Design", "Mobile App Design"], title: "Govt. Certificate Application" },
 ];
 
-function ProjectCard({ img, tag, title }: (typeof projects)[number]) {
+const MotionLink = motion.create(Link);
+
+function ProjectCard({ img, tag, title, href }: (typeof projects)[number] & { href?: string }) {
+  const Comp = href ? MotionLink : motion.article;
   return (
-    <motion.article initial="rest" whileHover="hover" animate="rest" className="w-full cursor-pointer">
+    <Comp
+      {...(href ? { href } : {})}
+      initial="rest"
+      whileHover="hover"
+      animate="rest"
+      className="block w-full cursor-pointer"
+    >
       <motion.div
         variants={{ rest: { scale: 1 }, hover: { scale: 0.97 } }}
         transition={{ duration: 0.3, ease: "easeOut" }}
@@ -50,7 +60,7 @@ function ProjectCard({ img, tag, title }: (typeof projects)[number]) {
           {title}
         </motion.h3>
       </div>
-    </motion.article>
+    </Comp>
   );
 }
 
