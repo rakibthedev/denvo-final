@@ -4,7 +4,7 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import WordReveal from "../shared/WordReveal";
 
-const shots = ["/visual4.png", "/visual6.png"];
+const shots = ["/jobsea/project2.png", "/jobsea/image1.png"];
 
 export default function FinalUI() {
   return (

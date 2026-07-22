@@ -15,7 +15,7 @@ export default function Showcase() {
           className="overflow-hidden rounded-3xl"
         >
           <Image
-            src="/visual5.png"
+            src="/jobsea/image1.png"
             alt="Job Sea product showcase"
             width={1280}
             height={698}

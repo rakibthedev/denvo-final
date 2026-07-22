@@ -29,7 +29,7 @@ export default function Wireframes() {
           className="mt-10 overflow-hidden rounded-3xl md:mt-16"
         >
           <Image
-            src="/cs-1.png"
+            src="/jobsea/cs-1.png"
             alt="JobSea wireframes — 68+ screens"
             width={1160}
             height={1474}

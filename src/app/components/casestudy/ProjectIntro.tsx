@@ -46,7 +46,7 @@ export default function ProjectIntro() {
             className="w-full overflow-hidden rounded-3xl md:w-[68%]"
           >
             <Image
-              src="/project1.png"
+              src="/jobsea/project2.png"
               alt="Job Sea website preview"
               width={847}
               height={612}

@@ -12,17 +12,17 @@ const solutions = [
   {
     title: "Hyper-Local Focus",
     body: "Map-based job discovery within customizable radius, prioritizing walkable and commutable opportunities for local communities.",
-    img: "/visual4.png",
+    img: "/jobsea/project2.png",
   },
   {
     title: "Accessibility",
     body: "WCAG 2.1 compliant design with screen reader support, high contrast modes, and simplified navigation for all users.",
-    img: "/visual5.png",
+    img: "/jobsea/project2.png",
   },
   {
     title: "Rapid Hiring",
     body: "One-tap application system and instant employer notifications to reduce time-to-hire and improve candidate engagement.",
-    img: "/visual6.png",
+    img: "/jobsea/project2.png",
   },
 ];
 
@@ -45,7 +45,7 @@ export default function Overview() {
           className="mt-12 overflow-hidden rounded-3xl md:mt-16"
         >
           <Image
-            src="/visual6.png"
+            src="/jobsea/project2.png"
             alt="Job Sea interface"
             width={1280}
             height={620}

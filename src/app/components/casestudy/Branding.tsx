@@ -1,62 +1,100 @@
-"use client";
-
 import Image from "next/image";
-import { motion } from "motion/react";
 import WordReveal from "../shared/WordReveal";
+import TextReveal from "../shared/TextReveal";
 
-// Masonry gallery items — mix of image tiles + one highlighted text card.
-const items: ({ type: "img"; src: string; h: number } | { type: "text" })[] = [
-  { type: "img", src: "/visual1.png", h: 300 },
-  { type: "text" },
-  { type: "img", src: "/work1.png", h: 360 },
-  { type: "img", src: "/visual2.png", h: 320 },
-  { type: "img", src: "/visual3.png", h: 260 },
-  { type: "img", src: "/project1.png", h: 240 },
-  { type: "img", src: "/visual5.png", h: 300 },
-];
+const images = {
+  image1: "visual1",
+  image2: "visual2",
+  image3: "visual3",
+  image4: "visual4",
+  image5: "visual5",
+  image6: "visual6",
+};
 
 export default function Branding() {
   return (
-    <section className="bg-white py-14 md:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20">
-        <WordReveal
-          text="Branding"
-          className="justify-center text-center text-[36px] font-bold leading-[120%] text-ink md:text-[56px]"
-        />
+    <div className="mx-auto max-w-[1440px] px-4 py-12 md:p-20">
+      <WordReveal
+        text="Branding"
+        className="justify-center text-center text-[36px] font-bold leading-[120%] text-ink md:text-[56px]"
+      />
 
-        <div className="mt-10 gap-5 [column-fill:_balance] md:mt-14 md:columns-3">
-          {items.map((it, i) => (
-            <motion.div
-              key={i}
-              initial={{ y: 30, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1], delay: (i % 3) * 0.08 }}
-              viewport={{ once: true, margin: "-6% 0px" }}
-              className="mb-5 break-inside-avoid"
-            >
-              {it.type === "text" ? (
-                <div className="flex flex-col justify-center rounded-3xl bg-[#f3e8ff] p-6 md:p-8">
-                  <div className="mb-4 h-1.5 w-10 rounded-full bg-brand-500" />
-                  <p className="text-lg font-semibold leading-snug text-ink md:text-xl">
-                    Navigate your career like a sea — JobSea keeps on you job opportunity
-                  </p>
-                </div>
-              ) : (
-                <div className="overflow-hidden rounded-3xl">
-                  <Image
-                    src={it.src}
-                    alt=""
-                    width={420}
-                    height={it.h}
-                    className="w-full object-cover"
-                    style={{ height: it.h }}
-                  />
-                </div>
-              )}
-            </motion.div>
-          ))}
+      {/* Large Screen */}
+      <div className="mt-12 hidden auto-rows-[300px] grid-cols-4 gap-5 md:grid">
+        {/* 1 */}
+        <div className="row-span-2">
+          <Image src={`/jobsea/${images.image1}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 2 */}
+        <div className="col-span-2 flex rounded-[20px] bg-[linear-gradient(90deg,#E7FDBC_0%,rgba(255,255,255,0)_100%)] pl-5">
+          <div className="w-1/2 py-5">
+            <Image src="/jobsea/quote.png" alt="img" width={88} height={88} className="h-[66px] w-[66px]" />
+            <TextReveal className="mt-2 text-[28px] font-[600] leading-[120%] text-black" as="h3">
+              Navigate your career like a sea — JobSea keeps on you job opportunity
+            </TextReveal>
+          </div>
+          <div className="w-1/2">
+            <Image src={`/jobsea/${images.image2}.png`} alt="img" width={294} height={330} className="h-full w-[294px]" />
+          </div>
+        </div>
+
+        {/* 3 */}
+        <div className="row-span-2">
+          <Image src={`/jobsea/${images.image3}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 4 */}
+        <div className="col-span-2 row-span-2">
+          <Image src={`/jobsea/${images.image4}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 5 */}
+        <div>
+          <Image src={`/jobsea/${images.image5}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 6 */}
+        <div>
+          <Image src={`/jobsea/${images.image6}.png`} alt="img" width={400} height={455} className="h-full w-full" />
         </div>
       </div>
-    </section>
+
+      {/* Mobile Screen */}
+      <div className="mt-6 grid auto-rows-[50px] grid-cols-2 gap-3 md:hidden md:gap-5">
+        {/* 1 */}
+        <div className="col-span-2 row-span-3 flex rounded-[20px] bg-[linear-gradient(90deg,#E7FDBC_0%,rgba(255,255,255,0)_100%)] pl-3 md:pl-5">
+          <div className="w-1/2 py-5">
+            <Image src="/jobsea/quote.png" alt="img" width={88} height={88} className="h-[50px] w-[50px] md:h-[66px] md:w-[66px]" />
+            <TextReveal className="mt-2 text-[16px] font-[600] leading-[120%] text-black md:text-[28px]" as="h3">
+              Navigate your career like a sea — JobSea keeps on you job opportunity
+            </TextReveal>
+          </div>
+          <div className="w-1/2">
+            <Image src={`/jobsea/${images.image2}.png`} alt="img" width={294} height={330} className="h-full w-[169px] md:w-[294px]" />
+          </div>
+        </div>
+
+        {/* 2 */}
+        <div className="col-span-2 row-span-6">
+          <Image src={`/jobsea/${images.image4}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 3 */}
+        <div className="row-span-4">
+          <Image src={`/jobsea/${images.image3}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 4 */}
+        <div className="row-span-4">
+          <Image src={`/jobsea/${images.image1}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+
+        {/* 5 */}
+        <div className="col-span-2 row-span-4">
+          <Image src={`/jobsea/${images.image5}.png`} alt="img" width={400} height={455} className="h-full w-full" />
+        </div>
+      </div>
+    </div>
   );
 }
