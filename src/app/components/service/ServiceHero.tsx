@@ -7,8 +7,8 @@ import TextReveal from "../shared/TextReveal";
 
 export default function ServiceHero() {
   return (
-    <section className="relative overflow-hidden bg-white md:pt-3">
-      <div className="relative mx-auto max-w-[1440px] overflow-hidden rounded-3xl">
+    <section className="relative overflow-hidden bg-white px-2 md:px-4 pt-2 pb-0 md:pb-0 md:pt-4">
+      <div className="relative mx-auto w-full overflow-hidden rounded-t-3xl">
         {/* Full-width hero background image */}
         <Image
           src="/serviceBanner.png"
@@ -27,7 +27,7 @@ export default function ServiceHero() {
           }}
         />
 
-        <div className="relative z-10">
+        <div className="relative z-10 max-w-[1440px] mx-auto">
           <Header />
 
           <div className="mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:h-[calc(100vh+110px)] md:justify-center md:px-20 md:pb-0 md:pt-0">

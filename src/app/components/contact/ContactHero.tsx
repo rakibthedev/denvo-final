@@ -16,10 +16,12 @@ const serviceTags = [
 
 export default function ContactHero() {
   return (
-    <section className="relative overflow-hidden bg-white md:pt-3">
+    <section className="relative overflow-hidden bg-white rounded-3xl mx-2 md:mx-4 mt-2 mb-0 md:mb-0 md:mt-4"
+      style={{ background: "linear-gradient(#f7f1ff, #ffffff)" }}
+    >
       <div
-        className="relative mx-auto max-w-[1440px] overflow-hidden rounded-3xl px-5 pb-16 md:px-12 md:pb-24 lg:px-[53px]"
-        style={{ background: "linear-gradient(#f7f1ff, #ffffff)" }}
+        className="relative mx-auto max-w-[1440px] overflow-hidden px-5 pb-16 md:px-12 md:pb-24 lg:px-[53px]"
+        
       >
         <Header />
 
@@ -72,7 +74,7 @@ export default function ContactHero() {
         </div>
 
         {/* Contact form */}
-        <div className="mt-12 flex items-center justify-center md:mt-20">
+        <div className="py-12 flex items-center justify-center md:py-16">
           <ContactFormCard />
         </div>
       </div>

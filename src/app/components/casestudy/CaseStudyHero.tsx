@@ -6,17 +6,16 @@ import TextReveal from "../shared/TextReveal";
 
 export default function CaseStudyHero() {
   return (
-    <section className="relative overflow-hidden bg-white md:pt-3">
+    <section className="relative overflow-hidden bg-white mx-2 md:mx-4 mt-2 mb-0 md:mb-0 md:mt-4 rounded-t-3xl"
+    style={{ background: "linear-gradient(#f7f1ff, #ffffff)" }}
+    >
       <div
-        className="relative mx-auto flex max-w-[1440px] flex-col overflow-hidden rounded-3xl md:h-[calc(100vh-12px)]"
-        style={{
-          background:
-            "radial-gradient(120% 90% at 80% 0%, #f3ebff 0%, #faf8ff 45%, #ffffff 100%)",
-        }}
+        className="relative mx-auto flex max-w-[1440px] flex-col overflow-hidden md:h-[100vh] md:py-[140px] py-20"
+        
       >
         <Header />
 
-        <div className="mx-auto flex w-full flex-1 flex-col items-start justify-center gap-6 px-5 pb-16 pt-28 md:px-20 md:py-0">
+        <div className="md:h-[calc(100vh-110px)] py-20 md:py-[140px] mx-auto flex w-full flex-1 flex-col items-start justify-center gap-6 px-5 pb-16 pt-28 md:px-20 md:py-0">
           <motion.div
             initial={{ y: 16, opacity: 0 }}
             whileInView={{ y: 0, opacity: 1 }}

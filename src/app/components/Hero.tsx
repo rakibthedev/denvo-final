@@ -38,7 +38,7 @@ export default function Hero() {
   return (
     <div ref={containerRef} className="relative h-auto md:h-[250vh]">
       <div className="top-0 h-auto overflow-hidden md:sticky md:h-screen">
-        <section className="relative h-auto overflow-hidden md:h-screen">
+        <section className="relative h-auto overflow-hidden md:h-screen rounded-t-3xl mx-2 md:mx-4 mt-2 mb-0 md:mb-0 md:mt-4">
           {/* Background video + soft-light gradient overlay */}
           <div className="absolute inset-0 -z-10 overflow-hidden bg-white">
             <video
@@ -53,8 +53,8 @@ export default function Hero() {
             <div
               className="absolute inset-0"
               style={{                
-                background: "url('/hero-video-overlay.png') center center / cover no-repeat",
-                  // "linear-gradient(0deg, rgba(255, 255, 255, 0.95) 0%, rgba(247, 243, 252, 0.98) 100%)",
+                // background: "url('/hero-video-overlay.png') center center / cover no-repeat",             
+                  background: "linear-gradient( #f7f1ffee, #ffffffe5 )",
                 // backgroundBlendMode: "normal, soft-light, soft-light",
                 // mixBlendMode: "soft-light",
               }}

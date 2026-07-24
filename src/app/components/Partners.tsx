@@ -7,7 +7,7 @@ import WordReveal from "./shared/WordReveal";
 
 export default function Partners() {
    return (
-        <div className='bg-[#F0E3FF]'>
+        <div className='bg-[#F0E3FF] w-full'>
             <div className='max-w-[1440px] mx-auto px-4 md:px-20 py-8 md:py-20'>
                 <WordReveal
                     text="We partner with 10+ countries"

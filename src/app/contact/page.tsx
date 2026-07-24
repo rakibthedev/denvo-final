@@ -17,9 +17,6 @@ export default function ContactPage() {
   return (
     <main className="bg-white">
       <ContactHero />
-      <Efficiency />
-      <CentralHubs />
-      <Offices />
       <Testimonials />
       <CTA />
       <Footer />
