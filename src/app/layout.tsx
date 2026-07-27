@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Host_Grotesk, Space_Grotesk } from "next/font/google";
+import { Host_Grotesk, Space_Grotesk, Instrument_Serif } from "next/font/google";
 import "./globals.css";
 import SmoothScroll from "./components/SmoothScroll";
 
@@ -13,6 +13,13 @@ const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
+});
+
+const instrumentSerif = Instrument_Serif({
+  variable: "--font-instrument-serif",
+  subsets: ["latin"],
+  weight: ["400"],
+  style: ["normal", "italic"],
 });
 
 export const metadata: Metadata = {
@@ -30,7 +37,7 @@ export default function RootLayout({
     <html
       lang="en"
       suppressHydrationWarning
-      className={`${hostGrotesk.variable} ${spaceGrotesk.variable} antialiased`}
+      className={`${hostGrotesk.variable} ${spaceGrotesk.variable} ${instrumentSerif.variable} antialiased`}
     >
       <body>
         <SmoothScroll>{children}</SmoothScroll>

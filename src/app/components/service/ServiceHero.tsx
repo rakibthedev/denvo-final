@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { motion } from "motion/react";
 import Header from "../Header";
 import TextReveal from "../shared/TextReveal";
@@ -9,15 +8,17 @@ export default function ServiceHero() {
   return (
     <section className="relative overflow-hidden bg-white px-2 md:px-4 pt-2 pb-0 md:pb-0 md:pt-4">
       <div className="relative mx-auto w-full overflow-hidden rounded-t-3xl">
-        {/* Full-width hero background image */}
-        <Image
-          src="/serviceBanner.png"
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 1440px) 100vw, 1440px"
-          className="object-cover"
-        />
+        {/* Full-width animated 3D hero background video */}
+        <video
+          autoPlay
+          loop
+          muted
+          playsInline
+          poster="/serviceBanner.png"
+          className="pointer-events-none absolute inset-0 h-full w-full object-cover"
+        >
+          <source src="/serviceBanner-vdo.mp4" type="video/mp4" />
+        </video>
         {/* Soft white wash on the left so the heading stays legible over the image */}
         <div
           className="pointer-events-none absolute inset-0"
@@ -30,7 +31,7 @@ export default function ServiceHero() {
         <div className="relative z-10 max-w-[1440px] mx-auto">
           <Header />
 
-          <div className="mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:h-[calc(100vh+110px)] md:justify-center md:px-20 md:pb-0 md:pt-0">
+          <div className="mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:h-screen md:justify-center md:px-20 md:pb-0 md:pt-0">
             <div className="md:max-w-[620px]">
               <TextReveal
                 as="h1"

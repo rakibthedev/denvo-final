@@ -34,6 +34,7 @@
   /* Fonts */
   --font-sans: var(--font-host-grotesk);
   --font-space: var(--font-space-grotesk);
+  --font-serif: var(--font-instrument-serif);
 }
 
 /* Hero title: 96px once the viewport is wider than 1440px (e.g. zoomed out / big screen).
