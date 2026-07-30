@@ -5,9 +5,9 @@ import Marquee from "react-fast-marquee";
 import WordReveal from "./shared/WordReveal";
 
 
-export default function Partners() {
+export default function Partners({ bg, gradientColor}: { bg: string, gradientColor: string }) {
    return (
-        <div className='bg-[#F0E3FF] w-full'>
+        <div className='w-full' style={{backgroundColor: bg}}>
             <div className='max-w-[1440px] mx-auto px-4 md:px-20 py-8 md:py-20'>
                 <WordReveal
                     text="We partner with 10+ countries"
@@ -30,7 +30,7 @@ export default function Partners() {
 
                 {/* Right to Left */}
                 <div className='mt-10'>
-                    <Marquee gradient={true} gradientColor='#F0E3FF' gradientWidth={300}>
+                    <Marquee gradient={true} gradientColor={gradientColor} gradientWidth={300}>
                         <div className='flex items-center gap-9'>
                             <Image src={'/visa.png'} alt='bd' width={100} height={100}
                                 className='w-[68px] md:w-[144px] h-[22px] md:h-12' />
@@ -58,7 +58,7 @@ export default function Partners() {
 
                 {/* Left to Right */}
                 <div className='mt-2 md:mt-10'>
-                    <Marquee direction='right' gradient={true} gradientColor='#F0E3FF' gradientWidth={300}>
+                    <Marquee direction='right' gradient={true} gradientColor={gradientColor} gradientWidth={300}>
                         <div className='flex items-center gap-9'>
                             <Image src={'/visa.png'} alt='bd' width={100} height={100}
                                 className='w-[68px] md:w-[144px] h-[22px] md:h-12' />

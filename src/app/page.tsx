@@ -16,7 +16,7 @@ export default function Home() {
   return (
     <main className="bg-white">
       <Hero />
-      <Partners />
+      <Partners bg="#F0E3FF" gradientColor="#F0E3FF"/>
       <About />
       <ProjectHighlights />
       <ServiceMarquee />

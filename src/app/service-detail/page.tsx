@@ -12,6 +12,7 @@ import Footer from "../components/Footer";
 import Partners from "../components/Partners";
 import Services from "../components/Services";
 import Testimonials from "../components/Testimonials";
+import Principles from "../components/Principles";
 
 export const metadata: Metadata = {
   title: "UI/UX Design Services — Denvo Lab",
@@ -24,10 +25,10 @@ export default function ServiceDetailPage() {
     <main className="bg-white">
       <DetailHero />
       <ImageSlider />
-      <Partners />
+      <Partners bg="#fff" gradientColor="#fff"/>
       <GrowthStrategy />
       <FigmaPreview />
-      <Services />
+      <Principles />
       <CoreServices />
       <IndustriesExpertise />
       <Testimonials />

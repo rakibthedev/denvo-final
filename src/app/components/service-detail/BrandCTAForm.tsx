@@ -135,44 +135,7 @@ export default function BrandCTAForm() {
             </button>
           </form>
         </div>
-      </div>
-
-      {/* marquee banner */}
-      <div className="relative mx-auto mt-6 w-full max-w-[1440px] overflow-hidden rounded-full border border-brand-100 bg-white py-4 shadow-[0px_20px_50px_-28px_rgba(136,60,250,0.55)] md:py-5">
-        {/* scrolling text */}
-        <div
-          className="flex w-max animate-marquee-left whitespace-nowrap will-change-transform"
-          style={{ animationDuration: "30s" }}
-        >
-          {[0, 1, 2, 3, 4, 5].map((k) => (
-            <p
-              key={k}
-              className="shrink-0 pr-2 text-base font-semibold text-ink md:text-lg"
-            >
-              Why risk it with the{" "}
-              <span className="font-serif text-[1.08em] font-normal italic">wrong partner</span>? Get
-              100% value and guarantee. Don&apos;t miss out - Secure your{" "}
-              <span className="font-serif text-[1.08em] font-normal italic">brand&apos;s future</span>{" "}
-              today.
-            </p>
-          ))}
-        </div>
-
-        {/* left / right shade — light tint of our primary colour */}
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-[40%] bg-gradient-to-r from-[#9a70e4] to-transparent" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-[40%] bg-gradient-to-l from-[#9a70e4] to-transparent" />
-
-        {/* avatars cluster */}
-        <div className="absolute inset-y-0 left-5 flex items-center">
-          <Image
-            src="/cta-avatars.avif"
-            alt=""
-            width={360}
-            height={80}
-            className="h-9 w-auto md:h-11"
-          />
-        </div>
-      </div>
+      </div>      
     </section>
   );
 }
