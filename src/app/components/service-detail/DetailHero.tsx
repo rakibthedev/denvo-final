@@ -4,7 +4,6 @@ import { MessageCircle } from "lucide-react";
 import { motion } from "motion/react";
 import Header from "../Header";
 import TextReveal from "../shared/TextReveal";
-import ImageSlider from "./ImageSlider";
 
 export default function DetailHero() {
   return (
