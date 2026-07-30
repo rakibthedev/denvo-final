@@ -30,9 +30,8 @@ export default function GrowthStrategy() {
 
   return (
     <section className="bg-white py-16 md:py-24">
-      <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20">
-        <SectionBadge label="Why Denvo Lab for UI/UX Design" />
-        <h2 className="mt-6 max-w-[760px] text-[32px] font-extrabold leading-[112%] tracking-[-0.02em] text-ink md:text-[52px]">
+      <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20 flex flex-col items-center">
+        <h2 className="mt-6 mb-6 max-w-[760px] text-[32px] font-extrabold leading-[112%] tracking-[-0.02em] text-ink md:text-[52px]">
           Because <span className="text-primary">Good Design</span> Is a{" "}
           <span className="text-primary">Business Growth</span> Strategy
         </h2>

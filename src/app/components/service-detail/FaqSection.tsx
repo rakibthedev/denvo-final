@@ -39,7 +39,6 @@ export default function FaqSection() {
     <section className="bg-white py-16 md:py-24">
       <div className="mx-auto w-full max-w-[900px] px-5 md:px-8">
         <div className="flex flex-col items-center text-center">
-          <SectionBadge label="FAQs" />
           <h2 className="mt-6 text-[32px] font-extrabold leading-[112%] tracking-[-0.02em] text-ink md:text-[52px]">
             Your Questions <span className="text-primary">Answered!</span>
           </h2>

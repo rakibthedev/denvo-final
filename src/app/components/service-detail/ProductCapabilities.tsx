@@ -55,7 +55,7 @@ export default function ProductCapabilities() {
       />
       <div className="relative mx-auto w-full max-w-[1440px] px-5 md:px-20">
         <div className="flex flex-col items-center text-center">
-          <SectionBadge label="Our Works" className="border-white/20 bg-white/10 text-purple-3" />
+          {/* <SectionBadge label="Our Works" className="border-white/20 bg-white/10 text-purple-3" /> */}
           <h2 className="mt-6 text-[32px] font-extrabold leading-[112%] tracking-[-0.02em] text-white md:text-[52px]">
             Our Product Design <span className="text-purple-3">Capabilities!</span>
           </h2>

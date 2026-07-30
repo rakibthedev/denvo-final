@@ -31,7 +31,8 @@ export default function ServiceHero() {
         <div className="relative z-10 max-w-[1440px] mx-auto">
           <Header />
 
-          <div className="mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:h-screen md:justify-center md:px-20 md:pb-0 md:pt-0">
+          <div className="mx-auto flex h-auto w-full flex-col items-start gap-10 px-5 pb-16 pt-32 md:h-screen
+           md:justify-center md:px-20 md:pb-0 md:pt-0">
             <div className="md:max-w-[620px]">
               <TextReveal
                 as="h1"

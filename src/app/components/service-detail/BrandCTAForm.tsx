@@ -32,11 +32,7 @@ export default function BrandCTAForm() {
         />
         <div className="relative grid grid-cols-1 gap-12 px-6 py-12 md:grid-cols-2 md:gap-16 md:px-16 md:py-16">
           {/* Left */}
-          <div>
-            <SectionBadge
-              label="Claim a $799 Consultation, on Us!"
-              className="border-[#a1a1aa] bg-transparent text-[#a1a1aa]"
-            />
+          <div>          
             <h2 className="mt-6 text-[34px] font-extrabold leading-[110%] tracking-[-0.02em] text-white md:text-[48px]">
               Enhance Your Brand Potential <span className="text-purple-3">At No Cost!</span>
             </h2>

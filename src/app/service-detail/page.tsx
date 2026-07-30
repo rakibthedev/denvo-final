@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import DetailHero from "../components/service-detail/DetailHero";
+import ImageSlider from "../components/service-detail/ImageSlider";
 import IdeaTransformation from "../components/service-detail/IdeaTransformation";
 import GrowthStrategy from "../components/service-detail/GrowthStrategy";
 import FigmaPreview from "../components/service-detail/FigmaPreview";
@@ -12,6 +13,10 @@ import ProductCapabilities from "../components/service-detail/ProductCapabilitie
 import FaqSection from "../components/service-detail/FaqSection";
 import BrandCTAForm from "../components/service-detail/BrandCTAForm";
 import Footer from "../components/Footer";
+import Principles from "../components/Principles";
+import Partners from "../components/Partners";
+import Services from "../components/Services";
+import Testimonials from "../components/Testimonials";
 
 export const metadata: Metadata = {
   title: "UI/UX Design Services — Denvo Lab",
@@ -23,14 +28,14 @@ export default function ServiceDetailPage() {
   return (
     <main className="bg-white">
       <DetailHero />
-      <IdeaTransformation />
+      <ImageSlider />
+      <Partners />
       <GrowthStrategy />
       <FigmaPreview />
-      <Timeline30Days />
+      <Services />
       <CoreServices />
       <IndustriesExpertise />
-      <ToolsPlatform />
-      <SuccessStories />
+      <Testimonials />
       <ProductCapabilities />
       <FaqSection />
       <BrandCTAForm />

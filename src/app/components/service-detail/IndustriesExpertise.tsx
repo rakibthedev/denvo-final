@@ -20,7 +20,7 @@ export default function IndustriesExpertise() {
       <div className="mx-auto w-full max-w-[1440px] px-5 md:px-20">
         <div className="flex flex-col gap-8 md:flex-row md:items-end md:justify-between">
           <div>
-            <SectionBadge label="Industries" className="border-white/20 bg-white/10 text-purple-3" />
+            {/* <SectionBadge label="Industries" className="border-white/20 bg-white/10 text-purple-3" /> */}
             <h2 className="mt-6 max-w-[720px] text-[32px] font-extrabold leading-[112%] tracking-[-0.02em] text-white md:text-[52px]">
               Our Expertise Across Diverse{" "}
               <span className="text-purple-3">Design Service Industries</span>
