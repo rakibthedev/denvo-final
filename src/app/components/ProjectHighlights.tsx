@@ -5,15 +5,9 @@ import Link from "next/link";
 import { motion } from "motion/react";
 import { ArrowUpRight } from "lucide-react";
 import WordReveal from "./shared/WordReveal";
+import { studies } from "../studies/studies.data";
 
-const projects = [
-  { img: "/project1.png", tag: ["UI/UX Design", "Dashboard Design"], title: "Job Sea – Local Job Portal", href: "/studies/jobsea" },
-  { img: "/project2.png", tag: ["Web Design", "eCommerce Website"], title: "A1One Botanicals eCommerce" },
-  { img: "/project3.png", tag: ["UI/UX Design", "Mobile App Design"], title: "Hotel Management" },
-  { img: "/project4.png", tag: ["UI/UX Design", "Web Design"], title: "Nara AI – Travel Plan Builder Agency" },
-  { img: "/project5.png", tag: ["UI/UX Design", "SaaS Application Design"], title: "Property Schedule Management" },
-  { img: "/project6.png", tag: ["Web Design", "Mobile App Design"], title: "Govt. Certificate Application" },
-];
+const projects = studies.map((s) => ({ img: s.img, tag: s.tag, title: s.title, href: `/studies/${s.slug}` }));
 
 const MotionLink = motion.create(Link);
 

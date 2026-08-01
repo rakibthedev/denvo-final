@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { notFound } from "next/navigation";
 import CaseStudyHero from "../../components/casestudy/CaseStudyHero";
 import ProjectIntro from "../../components/casestudy/ProjectIntro";
 import Overview from "../../components/casestudy/Overview";
@@ -10,17 +11,39 @@ import Wireframes from "../../components/casestudy/Wireframes";
 import FinalUI from "../../components/casestudy/FinalUI";
 import ContactForm from "../../components/casestudy/ContactForm";
 import Footer from "../../components/Footer";
+import { allStudySlugs, getStudy } from "../studies.data";
 
-export const metadata: Metadata = {
-  title: "Job Sea — Local Job Portal | Denvo Lab Case Study",
-  description:
-    "A hyper-local recruitment platform designed to help job seekers find employment within their immediate community and empower local businesses to find the right staff quickly.",
-};
+export function generateStaticParams() {
+  return allStudySlugs().map((slug) => ({ slug }));
+}
 
-export default function JobSeaCaseStudy() {
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+  const { slug } = await params;
+  const study = getStudy(slug);
+  if (!study) return { title: "Case Studies — Denvo Lab" };
+
+  return {
+    title: `${study.title} | Denvo Lab Case Study`,
+    description: study.description,
+  };
+}
+
+export default async function CaseStudyPage({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const study = getStudy(slug);
+  if (!study) notFound();
+
   return (
     <main className="bg-white">
-      <CaseStudyHero />
+      <CaseStudyHero title={study.title} tags={study.tag} />
       <ProjectIntro />
       <Overview />
       <Branding />

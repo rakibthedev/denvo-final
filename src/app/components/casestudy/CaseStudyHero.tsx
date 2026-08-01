@@ -4,7 +4,15 @@ import { motion } from "motion/react";
 import Header from "../Header";
 import TextReveal from "../shared/TextReveal";
 
-export default function CaseStudyHero() {
+type CaseStudyHeroProps = {
+  title?: string;
+  tags?: string[];
+};
+
+export default function CaseStudyHero({
+  title = "Job Sea – Local Job Portal",
+  tags = ["UI/UX Design", "Dashboard Design"],
+}: CaseStudyHeroProps) {
   return (
     <section className="relative overflow-hidden bg-white mx-2 md:mx-4 mt-2 mb-0 md:mb-0 md:mt-4 rounded-t-3xl"
     style={{ background: "linear-gradient(#f7f1ff, #ffffff)" }}
@@ -23,16 +31,20 @@ export default function CaseStudyHero() {
             viewport={{ once: true }}
             className="flex items-center gap-3 text-lg font-medium text-grey-700 md:text-xl"
           >
-            <span>UI/Ux Design</span>
-            <span className="size-2 rounded-full bg-brand-500" />
-            <span>Dashboard Design</span>
+            {tags.map((t, i) => (
+              <span key={t} className="flex items-center gap-3">
+                {i > 0 && <span className="size-2 rounded-full bg-brand-500" />}
+                <span>{t}</span>
+              </span>
+            ))}
           </motion.div>
 
           <TextReveal
+            key={title}
             as="h1"
             className="max-w-[820px] text-[44px] font-extrabold leading-[110%] text-[#342F3D] md:text-[80px] wide:text-[88px]"
           >
-            Job Sea – Local Job Portal
+            {title}
           </TextReveal>
 
           <motion.a
