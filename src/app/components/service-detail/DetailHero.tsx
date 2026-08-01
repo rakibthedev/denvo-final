@@ -5,7 +5,17 @@ import { motion } from "motion/react";
 import Header from "../Header";
 import TextReveal from "../shared/TextReveal";
 
-export default function DetailHero() {
+type DetailHeroProps = {
+  title?: string;
+  highlight?: string;
+  description?: string;
+};
+
+export default function DetailHero({
+  title = "UI/UX Design Services for",
+  highlight = "Enterprises, Startups & Scaling Brands",
+  description = "We design digital experiences that feel effortless, combining user flows, design systems, and deep user research to drive real business growth.",
+}: DetailHeroProps) {
   return (
     // Added min-h-screen, flex, and flex-col to force full viewport height
     <section className="relative flex flex-col overflow-hidden bg-white px-2 pt-2 md:px-4 md:pt-4">
@@ -20,13 +30,14 @@ export default function DetailHero() {
           <div className="mx-auto flex flex-1 flex-col items-center justify-center px-4 pt-25 pb-12 text-center md:pt-40 md:pb-20">
             <div className="flex flex-col items-center gap-6">
               <TextReveal
+                key={title}
                 as="h1"
                 className="max-w-[900px] justify-center text-[40px] font-extrabold leading-[108%] tracking-[-0.02em] text-ink md:text-[68px] wide:text-[76px]"
               >
-                UI/UX Design Services for
+                {title}
               </TextReveal>
               <h2 className="-mt-2 max-w-[900px] text-[40px] font-extrabold leading-[108%] tracking-[-0.02em] text-primary md:-mt-4 md:text-[68px] wide:text-[76px]">
-                Enterprises, Startups &amp; Scaling Brands
+                {highlight}
               </h2>
 
               <motion.p
@@ -36,8 +47,7 @@ export default function DetailHero() {
                 viewport={{ once: true }}
                 className="max-w-[620px] text-base leading-relaxed text-subtext md:text-lg"
               >
-                We design digital experiences that feel effortless, combining user flows, design
-                systems, and deep user research to drive real business growth.
+                {description}
               </motion.p>
 
               <motion.a

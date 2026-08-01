@@ -7,7 +7,7 @@ import Logo from "./shared/Logo";
 import MenuLink from "./shared/MenuLink";
 import AnimatedBorderButton from "./shared/AnimatedBorderButton";
 
-const navLinks = { Services: "/service", About: "/about", Studies: "/studies" };
+const navLinks = { Services: "/services", About: "/about", Studies: "/studies" };
 
 export default function Header() {
   const [open, setOpen] = useState(false);

@@ -4,42 +4,15 @@ import Image from "next/image";
 import { motion } from "motion/react";
 import { ChevronRight } from "lucide-react";
 import WordReveal from "../shared/WordReveal";
+import { services, slugify } from "../../services/services.data";
 
 const DESC =
   "We create visually stunning, user-friendly designs that enhance engagement and deliver a smooth digital experience.";
 
-const services = [
-  {
-    title: "UI/UX Design",
-    img: "/service2.png",
-    subs: ["UI/UX Design", "App Design", "Wireframing & Prototyping", "Website Design", "Dashboard Design", "Product Design"],
-  },
-  {
-    title: "Web Development",
-    img: "/service2.png",
-    subs: ["Full Stack Development", "E-Commerce Solutions", "Career-Pattern Architecture", "Responsive Mobile-First Design", "SAAS Application Development", "Progressive Web App Design"],
-  },
-  {
-    title: "Mobile App Development",
-    img: "/service2.png",
-    subs: ["iOS & Android App", "Native & Hybrid Development", "App UI/UX Optimization", "App Store Deployment"],
-  },
-  {
-    title: "Low-Code/No-Code Solutions",
-    img: "/service2.png",
-    subs: ["Webflow", "Shopify", "WordPress", "WIX", "Framer", "Sales Funnel"],
-  },
-  {
-    title: "Branding & Visual Identity",
-    img: "/service2.png",
-    subs: ["Graphic & Motion Design", "Logo & Brand Design", "Style Guides & Design Systems", "Packaging & Print Design"],
-  },
-];
-
 function SubServiceRow({ label }: { label: string }) {
   return (
     <a
-      href="#"
+      href={`/services/${slugify(label)}`}
       className="group/sub flex items-center justify-between gap-4 border-b border-[#EAE4F2] py-4 transition-colors hover:border-primary"
     >
       <span className="text-base font-medium text-ink transition-all duration-300 group-hover/sub:translate-x-1.5 group-hover/sub:text-primary md:text-lg">
