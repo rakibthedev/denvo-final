@@ -54,7 +54,7 @@ export const studies: CaseStudy[] = [
       "A SaaS platform that gives property teams a clear, scalable way to manage schedules, maintenance, and tenant communication.",
   },
   {
-    slug: "govt-certificate-application",
+    slug: "govt-certificate-app",
     img: "/project6.png",
     tag: ["Web Design", "Mobile App Design"],
     title: "Govt. Certificate Application",

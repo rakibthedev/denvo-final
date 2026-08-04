@@ -13,8 +13,12 @@ import ContactForm from "../../components/casestudy/ContactForm";
 import Footer from "../../components/Footer";
 import { allStudySlugs, getStudy } from "../studies.data";
 
+// "govt-certificate-app" has its own static route folder, so it is excluded
+// here to avoid a duplicate-path conflict with the dynamic segment.
 export function generateStaticParams() {
-  return allStudySlugs().map((slug) => ({ slug }));
+  return allStudySlugs()
+    .filter((slug) => slug !== "govt-certificate-app")
+    .map((slug) => ({ slug }));
 }
 
 export async function generateMetadata({
