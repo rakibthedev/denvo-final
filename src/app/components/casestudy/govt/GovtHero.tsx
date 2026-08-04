@@ -3,9 +3,15 @@
 import { motion } from "motion/react";
 import Header from "../../Header";
 import TextReveal from "../../shared/TextReveal";
+import FlipServiceItem from "../../shared/FlipServiceItem";
 
 const tags = ["Web Design", "Mobile App Design"];
-const stack = ["UI/UX Design", "Web Development", "Brand Design", "Figma"];
+const serviceTags = [
+  { label: "UI/UX Design", offset: "md:pr-6", image: "/project1.png" },
+  { label: "Web Development", offset: "md:pr-12", image: "/project2.png" },
+  { label: "Brand Design", offset: "md:pr-0", image: "/project5.png" },
+  { label: "Figma", offset: "md:pr-20", image: "/project3.png" },
+];
 
 export default function GovtHero() {
   return (
@@ -43,24 +49,30 @@ export default function GovtHero() {
               </TextReveal>
             </div>
 
-            {/* Right: stack list */}
-            <motion.ul
-              initial={{ x: 16, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{ duration: 0.5, ease: "easeOut", delay: 0.2 }}
-              viewport={{ once: true }}
-              className="flex flex-col items-start gap-5 md:items-end md:pt-2"
-            >
-              {stack.map((s) => (
-                <li
-                  key={s}
-                  className="flex items-center gap-3 text-lg font-medium text-[#342F3D] md:text-xl"
-                >
-                  <span className="text-grey-700">{"{ + }"}</span>
-                  <span>{s}</span>
-                </li>
-              ))}
-            </motion.ul>
+           {/* Right: floating services (flip on hover) — desktop only */}
+                         <div className="md:translate-y-[-60px] flex w-full shrink-0 flex-col items-start gap-6 md:w-[420px] md:items-end">
+                           <div className="hidden flex-col gap-6 md:flex">              
+                             {serviceTags.map((tag, i) => (
+                               <motion.div
+                                 key={tag.label}
+                                 initial={{ x: 30, opacity: 0 }}
+                                 whileInView={{ x: 0, opacity: 1 }}
+                                 transition={{ duration: 0.5, delay: 0.15 * i, ease: "easeOut" }}
+                                 viewport={{ once: true }}
+                                 className="relative z-0 hover:z-50"
+                               >
+                                 <FlipServiceItem label={tag.label} image={tag.image} className={tag.offset} />
+                               </motion.div>
+                             ))}
+                           </div>
+           
+                           {/* Mobile video (normal flow) */}
+                           <div className="mt-2 w-full overflow-hidden rounded-2xl shadow-xl md:hidden">
+                             <video className="h-[32vh] w-full object-cover" autoPlay muted loop playsInline>
+                               <source src="/video-2.mp4" type="video/mp4" />
+                             </video>
+                           </div>
+                         </div>
           </div>
 
           <motion.a
