@@ -60,7 +60,7 @@ export default function GovtStyleGuide() {
           </div>
 
           <div className="flex h-[140px] justify-end rounded-[24px] bg-[#E8F0FF] md:h-[432px]">
-            <Image src="/jobsea/visual2.png" alt="visual2" width={413} height={432} className="h-full w-[133px] md:w-[413px]" />
+            <Image src="/govt-certificate-app/brand-home-icon.png" alt="Prottoyon" width={413} height={432} className="h-full w-[133px] md:w-[413px]" />
           </div>
         </div>
       </div>
