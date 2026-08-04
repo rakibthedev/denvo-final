@@ -48,31 +48,21 @@ export default function GovtHero() {
                 Govt. Certificate Application
               </TextReveal>
             </div>
-
-           {/* Right: floating services (flip on hover) — desktop only */}
-                         <div className="md:translate-y-[-60px] flex w-full shrink-0 flex-col items-start gap-6 md:w-[420px] md:items-end">
-                           <div className="hidden flex-col gap-6 md:flex">              
-                             {serviceTags.map((tag, i) => (
-                               <motion.div
-                                 key={tag.label}
-                                 initial={{ x: 30, opacity: 0 }}
-                                 whileInView={{ x: 0, opacity: 1 }}
-                                 transition={{ duration: 0.5, delay: 0.15 * i, ease: "easeOut" }}
-                                 viewport={{ once: true }}
-                                 className="relative z-0 hover:z-50"
-                               >
-                                 <FlipServiceItem label={tag.label} image={tag.image} className={tag.offset} />
-                               </motion.div>
-                             ))}
-                           </div>
-           
-                           {/* Mobile video (normal flow) */}
-                           <div className="mt-2 w-full overflow-hidden rounded-2xl shadow-xl md:hidden">
-                             <video className="h-[32vh] w-full object-cover" autoPlay muted loop playsInline>
-                               <source src="/video-2.mp4" type="video/mp4" />
-                             </video>
-                           </div>
-                         </div>
+            {/* Right: floating services (flip on hover) — desktop only */}
+            <div className="hidden flex-col gap-6 md:flex">              
+              {serviceTags.map((tag, i) => (
+                <motion.div
+                  key={tag.label}
+                  initial={{ x: 30, opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.5, delay: 0.15 * i, ease: "easeOut" }}
+                  viewport={{ once: true }}
+                  className="relative z-0 hover:z-50"
+                >
+                  <FlipServiceItem label={tag.label} image={tag.image} className={tag.offset} />
+                </motion.div>
+              ))}
+            </div>
           </div>
 
           <motion.a

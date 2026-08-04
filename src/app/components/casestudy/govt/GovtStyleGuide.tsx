@@ -29,15 +29,15 @@ export default function GovtStyleGuide() {
         </ScrollReveal>
       </div>
 
-      {/* Typeface */}
+      {/* Typeface Section (Exactly as provided) */}
       <div className="flex gap-4 md:gap-15">
-        <div className="flex w-1/3 items-center justify-center border-r border-blue-200 py-5">
-          <span className="text-[120px] font-bold leading-none text-[#4582FD] md:text-[420px]">A</span>
+        <div className="w-1/3 border-r border-blue-200 py-5">
+          <Image src="/jobsea/A.png" alt="A" width={616} height={616} className="h-[200px] w-full md:h-[616px]" />
         </div>
 
         <div className="w-2/3">
-          <TextReveal className="mb-2 text-[16px] font-[700] leading-[131%] text-[#171717] md:mb-4 md:text-[44px]" as="h1">
-            Noto Sans Bengali
+          <TextReveal className="mb-2 text-[16px] font-[600] leading-[131%] text-[#171717] md:mb-4 md:text-[44px]" as="h1">
+            Open Source
           </TextReveal>
 
           <TextReveal className="mb-2 text-[8px] font-[500] leading-[120%] text-[#3B3B40] md:mb-4 md:text-[24px]" as="p">
@@ -52,49 +52,51 @@ export default function GovtStyleGuide() {
             {weights.map((w) => (
               <span
                 key={w}
-                className="rounded-bl-full rounded-tr-full bg-[#E8F0FF] px-[10px] py-1 text-center text-[6px] font-[400] leading-[120%] text-[#4582FD] md:px-8 md:py-3 md:text-[14px]"
+                className="rounded-bl-full rounded-tr-full bg-[#E8F0FF] px-[10px] py-1 text-[6px] font-[400] leading-[120%] text-[#4582FD] md:px-8 md:py-3 md:text-[14px]"
               >
                 {w}
               </span>
             ))}
           </div>
 
-          <div className="flex h-[140px] justify-end overflow-hidden rounded-[24px] bg-[#E8F0FF] md:h-[432px]">
-            <Image
-              src="/govt-certificate-app/brand-home-icon.png"
-              alt="Prottoyon app icon"
-              width={413}
-              height={432}
-              className="h-full w-[160px] object-cover md:w-[413px]"
-            />
+          <div className="flex h-[140px] justify-end rounded-[24px] bg-[#E8F0FF] md:h-[432px]">
+            <Image src="/jobsea/visual2.png" alt="visual2" width={413} height={432} className="h-full w-[133px] md:w-[413px]" />
           </div>
         </div>
       </div>
 
-      {/* Color */}
-      <div className="grid grid-cols-2 gap-4 md:grid-cols-4 md:gap-8">
+      {/* Color Section */}
+      <div className="grid grid-cols-2 gap-6 pt-10 md:grid-cols-4 md:gap-8 md:pt-16">
         {colors.map((c) => (
-          <div key={c.hex}>
+          <div key={c.hex} className="flex flex-col">
+            {/* Main Color Block */}
             <div
-              className="flex h-[220px] flex-col justify-start rounded-t-[32px] p-5 md:h-[320px]"
+              className="relative z-40 flex h-[240px] flex-col justify-between rounded-[32px] p-6 shadow-sm md:h-[340px] md:p-8"
               style={{ backgroundColor: c.hex }}
             >
-              <div className="space-y-1 text-[12px] font-medium text-white/90 md:text-[14px]">
+              <p className="text-[16px] font-medium text-white md:text-[20px]">
+                {c.hex}
+              </p>
+              <div className="space-y-1.5 text-[14px] font-medium text-white md:text-[16px]">
                 <p>B {c.rgb[0]}</p>
                 <p>B {c.rgb[1]}</p>
                 <p>B {c.rgb[2]}</p>
               </div>
             </div>
+
+            {/* Stacked Tint Blocks */}
             {c.tints.map((t, i) => (
               <div
                 key={t}
-                className={`h-[26px] md:h-[34px] ${i === c.tints.length - 1 ? "rounded-b-[32px]" : ""}`}
-                style={{ backgroundColor: t }}
+                className="relative w-full rounded-b-[32px]"
+                style={{
+                  backgroundColor: t,
+                  height: "80px",
+                  marginTop: "-44px",
+                  zIndex: 30 - i * 10,
+                }}
               />
             ))}
-            <p className="mt-3 text-center text-[16px] font-[600] leading-[120%] text-ink md:text-[22px]">
-              {c.hex.replace("#", "")}
-            </p>
           </div>
         ))}
       </div>
