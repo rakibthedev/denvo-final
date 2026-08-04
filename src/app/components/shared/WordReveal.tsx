@@ -1,7 +1,7 @@
 "use client";
 
 import React from "react";
-import { motion } from "framer-motion";
+import { motion, Variants } from "framer-motion"; // Import Variants here
 
 interface WordRevealProps {
   text: string;
@@ -16,18 +16,19 @@ export default function WordReveal({
   text,
   className = "",
   delay = 0,
-  stagger = 0.03, // Tighter stagger for fluid animation
+  stagger = 0.03,
   as: Component = "div",
   style,
 }: WordRevealProps) {
-  // Safety check: prevents ".split is not a function" error on undefined data
+  
   if (!text || typeof text !== "string") {
     return null; 
   }
 
   const words = text.split(" ");
 
-  const containerVariants = {
+  // Explicitly assign the Variants type
+  const containerVariants: Variants = {
     hidden: {},
     visible: {
       transition: {
@@ -37,10 +38,11 @@ export default function WordReveal({
     },
   };
 
-  const wordVariants = {
+  // Explicitly assign the Variants type
+  const wordVariants: Variants = {
     hidden: {
-      y: "110%", // Pushed down outside the overflow mask
-      rotateZ: 2, // Slight rotation for a premium feel
+      y: "110%",
+      rotateZ: 2,
       opacity: 0,
     },
     visible: {
@@ -49,7 +51,7 @@ export default function WordReveal({
       opacity: 1,
       transition: {
         duration: 0.8,
-        ease: [0.16, 1, 0.3, 1], // Custom cubic-bezier for snappy deceleration
+        ease: [0.16, 1, 0.3, 1],
       },
     },
   };
@@ -60,13 +62,13 @@ export default function WordReveal({
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, margin: "-10%" }} // Triggers slightly before full view
+        viewport={{ once: true, margin: "-10%" }}
         className="inline-flex flex-wrap"
       >
         {words.map((word, index) => (
           <span
             key={index}
-            className="inline-flex overflow-hidden pb-1" // pb-1 prevents clipping descenders like 'g'
+            className="inline-flex overflow-hidden pb-1"
           >
             <motion.span variants={wordVariants} className="inline-block">
               {word}
