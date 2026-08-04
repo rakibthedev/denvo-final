@@ -1,15 +1,13 @@
 "use client";
 
 import React, { ReactNode } from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 interface ScrollRevealProps {
   children: ReactNode;
   className?: string;
   delay?: number;
-  duration?: number;
-  y?: string | number;
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div" | "span";
+  as?: React.ElementType;
   style?: React.CSSProperties;
 }
 
@@ -17,46 +15,23 @@ export default function ScrollReveal({
   children,
   className = "",
   delay = 0,
-  duration = 1.0,
-  y = "100%",
-  as = "div",
+  as: Component = "div",
   style,
 }: ScrollRevealProps) {
-  const MotionComponent =
-    as === "h1"
-      ? motion.h1
-      : as === "h2"
-        ? motion.h2
-        : as === "h3"
-          ? motion.h3
-          : as === "h4"
-            ? motion.h4
-            : as === "h5"
-              ? motion.h5
-              : as === "h6"
-                ? motion.h6
-                : as === "p"
-                  ? motion.p
-                  : as === "span"
-                    ? motion.span
-                    : motion.div;
-
   return (
-    <span className="block overflow-hidden">
-      <MotionComponent
-        initial={{ opacity: 0, y }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, margin: "-10% 0px -10% 0px" }}
+    <Component className={`overflow-hidden ${className}`} style={style}>
+      <motion.div
+        initial={{ y: "100%", opacity: 0 }}
+        whileInView={{ y: "0%", opacity: 1 }}
+        viewport={{ once: true, margin: "-10%" }}
         transition={{
-          duration,
-          delay,
-          ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+          duration: 0.8,
+          delay: delay,
+          ease: [0.16, 1, 0.3, 1],
         }}
-        className={className}
-        style={style}
       >
         {children}
-      </MotionComponent>
-    </span>
+      </motion.div>
+    </Component>
   );
 }

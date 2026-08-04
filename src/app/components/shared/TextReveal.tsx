@@ -21,6 +21,7 @@ export default function TextReveal({
   as = "div",
   style,
 }: TextRevealProps) {
+  // If children is a string, pass it to WordReveal for the staggered text effect
   if (typeof children === "string") {
     return (
       <WordReveal
@@ -34,6 +35,7 @@ export default function TextReveal({
     );
   }
 
+  // Otherwise, render elements normally with ScrollReveal
   return (
     <ScrollReveal className={className} delay={delay} as={as} style={style}>
       {children}

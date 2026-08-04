@@ -1,14 +1,14 @@
 "use client";
 
 import React from "react";
-import { motion } from "motion/react";
+import { motion } from "framer-motion";
 
 interface WordRevealProps {
   text: string;
   className?: string;
   delay?: number;
   stagger?: number;
-  as?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6" | "p" | "div" | "span";
+  as?: React.ElementType;
   style?: React.CSSProperties;
 }
 
@@ -16,61 +16,65 @@ export default function WordReveal({
   text,
   className = "",
   delay = 0,
-  stagger = 0.1,
-  as = "div",
+  stagger = 0.03, // Tighter stagger for fluid animation
+  as: Component = "div",
   style,
 }: WordRevealProps) {
-  const containerVariants = {
-    hidden: { opacity: 0 },
-    visible: {
-      opacity: 1,
-      transition: { delayChildren: delay, staggerChildren: stagger },
-    },
-  };
+  // Safety check: prevents ".split is not a function" error on undefined data
+  if (!text || typeof text !== "string") {
+    return null; 
+  }
 
-  const wordVariants = {
-    hidden: { y: "20px", opacity: 0 },
+  const words = text.split(" ");
+
+  const containerVariants = {
+    hidden: {},
     visible: {
-      y: 0,
-      opacity: 1,
       transition: {
-        duration: 1.0,
-        ease: [0.16, 1, 0.3, 1] as [number, number, number, number],
+        staggerChildren: stagger,
+        delayChildren: delay,
       },
     },
   };
 
-  const MotionComponent =
-    as === "h1"
-      ? motion.h1
-      : as === "h2"
-        ? motion.h2
-        : as === "h3"
-          ? motion.h3
-          : as === "h4"
-            ? motion.h4
-            : as === "h5"
-              ? motion.h5
-              : as === "h6"
-                ? motion.h6
-                : as === "p"
-                  ? motion.p
-                  : as === "span"
-                    ? motion.span
-                    : motion.div;
+  const wordVariants = {
+    hidden: {
+      y: "110%", // Pushed down outside the overflow mask
+      rotateZ: 2, // Slight rotation for a premium feel
+      opacity: 0,
+    },
+    visible: {
+      y: "0%",
+      rotateZ: 0,
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.16, 1, 0.3, 1], // Custom cubic-bezier for snappy deceleration
+      },
+    },
+  };
 
   return (
-    <MotionComponent
-      variants={containerVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true }}
-      className={`flex flex-wrap ${className}`}
-      style={style}
-    >
-      <motion.span variants={wordVariants} className="block">
-        {text}
+    <Component className={`flex flex-wrap ${className}`} style={style}>
+      <motion.span
+        variants={containerVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, margin: "-10%" }} // Triggers slightly before full view
+        className="inline-flex flex-wrap"
+      >
+        {words.map((word, index) => (
+          <span
+            key={index}
+            className="inline-flex overflow-hidden pb-1" // pb-1 prevents clipping descenders like 'g'
+          >
+            <motion.span variants={wordVariants} className="inline-block">
+              {word}
+            </motion.span>
+            <span className="inline-block">&nbsp;</span>
+          </span>
+        ))}
       </motion.span>
-    </MotionComponent>
+    </Component>
   );
 }
